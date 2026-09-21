@@ -14,9 +14,9 @@ import {
   Menu, 
   X,
   Bell,
-  Search,
-  CheckCircle2,
-  Image as ImageIcon
+  Image as ImageIcon,
+  Globe,
+  FileCode2
 } from 'lucide-react';
 
 export default function AdminLayout() {
@@ -73,6 +73,7 @@ export default function AdminLayout() {
       badge: newInquiriesCount > 0 ? newInquiriesCount : null 
     },
     { name: 'Media Library', path: '/admin/media', icon: ImageIcon },
+    { name: 'Pages & Visual Builder', path: '/admin/pages', icon: Globe },
     { name: 'Site Settings & Branding', path: '/admin/settings', icon: Settings },
     { name: 'Services & Capabilities', path: '/admin/services', icon: Wrench },
     { name: 'Portfolio & Projects', path: '/admin/portfolio', icon: Layers },

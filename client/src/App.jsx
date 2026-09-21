@@ -33,6 +33,9 @@ import ServicesManager from './admin/pages/ServicesManager';
 import PortfolioManager from './admin/pages/PortfolioManager';
 import WorkshopManager from './admin/pages/WorkshopManager';
 import AccountSecurity from './admin/pages/AccountSecurity';
+import PagesManager from './admin/pages/PagesManager';
+import PageBuilder from './admin/builder/PageBuilder';
+import DynamicPage from './pages/DynamicPage';
 
 // Scroll to top on navigation
 function ScrollToTop() {
@@ -93,12 +96,16 @@ export default function App() {
               <Route index element={<AdminDashboard />} />
               <Route path="inquiries" element={<InquiriesManager />} />
               <Route path="media" element={<MediaManager />} />
+              <Route path="pages" element={<PagesManager />} />
               <Route path="settings" element={<SiteSettingsEditor />} />
               <Route path="services" element={<ServicesManager />} />
               <Route path="portfolio" element={<PortfolioManager />} />
               <Route path="workshop" element={<WorkshopManager />} />
               <Route path="security" element={<AccountSecurity />} />
             </Route>
+
+            {/* Standalone Visual Drag-and-Drop Page Builder */}
+            <Route path="/admin/builder/:pageId" element={<PageBuilder />} />
 
             {/* Public Storefront & Dedicated Silo Structure */}
             <Route element={<PublicLayout />}>
@@ -124,7 +131,8 @@ export default function App() {
               {/* Direct Contact */}
               <Route path="/contact" element={<Contact />} />
               
-              <Route path="*" element={<NotFound />} />
+              {/* Dynamic CMS Page Silos & Fallback */}
+              <Route path="*" element={<DynamicPage />} />
             </Route>
           </Routes>
         </Router>
