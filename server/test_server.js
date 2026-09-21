@@ -105,9 +105,57 @@ const server = app.listen(PORT, async () => {
     }
     console.log('✓ Valid contact submission and inquiry dispatch passed');
 
-    console.log('\n==========================================');
-    console.log('ALL API UNIT & INTEGRATION TESTS PASSED!');
-    console.log('==========================================');
+    // 4. Test Public Content Aggregated Endpoint
+    console.log('\n--- 4. Testing GET /api/content/all ---');
+    const contentRes = await request('/api/content/all');
+    console.log('Status:', contentRes.status);
+    if (contentRes.status !== 200 || !contentRes.body.data.settings || !contentRes.body.data.services) {
+      throw new Error('Public content endpoint failed');
+    }
+    console.log('✓ Public content endpoint returned complete data');
+
+    // 5. Test Admin Login & JWT Issuance
+    console.log('\n--- 5. Testing POST /api/auth/login ---');
+    const loginRes = await request('/api/auth/login', 'POST', {
+      email: 'admin@houseofengineers.pk',
+      password: 'Admin@HOE2026!'
+    });
+    console.log('Status:', loginRes.status);
+    if (loginRes.status !== 200 || !loginRes.body.token) {
+      throw new Error('Admin login failed');
+    }
+    const adminToken = loginRes.body.token;
+    console.log('✓ Admin login successful and JWT token received');
+
+    // 6. Test Protected Admin Route with Token
+    console.log('\n--- 6. Testing GET /api/admin/stats (Protected) ---');
+    const statsRes = await new Promise((resolve, reject) => {
+      const req = http.request(
+        {
+          hostname: '127.0.0.1',
+          port: PORT,
+          path: '/api/admin/stats',
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${adminToken}`
+          }
+        },
+        (res) => {
+          let resData = '';
+          res.on('data', (chunk) => (resData += chunk));
+          res.on('end', () => resolve({ status: res.statusCode, body: JSON.parse(resData) }));
+        }
+      );
+      req.on('error', reject);
+      req.end();
+    });
+    console.log('Status:', statsRes.status);
+    console.log('Stats:', statsRes.body.stats);
+    if (statsRes.status !== 200 || statsRes.body.stats.totalInquiries < 1) {
+      throw new Error('Admin stats check failed');
+    }
+    console.log('✓ Admin protected stats endpoint verified');
   } catch (err) {
     console.error('\n❌ Test execution failed:', err);
     process.exitCode = 1;

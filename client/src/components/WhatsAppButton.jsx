@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useSiteContent } from '../context/SiteContentContext';
 import { MessageSquare, X } from 'lucide-react';
 
 export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(true);
-  const phoneNumber = '923001234567';
+  const { settings } = useSiteContent();
+  const phoneNumber = settings?.whatsappNumber || '923001234567';
   const defaultMessage = encodeURIComponent('Inquiry regarding engineering services from House of Engineers web portal');
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
 

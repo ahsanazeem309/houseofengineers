@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { 
-  portfolioCategories, 
-  portfolioProjects 
-} from '../data/portfolioData';
+import { useSiteContent } from '../context/SiteContentContext';
+import { portfolioCategories } from '../data/portfolioData';
 import PortfolioItem from '../components/PortfolioItem';
 import ProjectModal from '../components/ProjectModal';
 import { 
@@ -14,6 +12,8 @@ import {
 } from 'lucide-react';
 
 export default function Portfolio() {
+  const { portfolio } = useSiteContent();
+  const portfolioProjects = portfolio || [];
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');

@@ -1,0 +1,32 @@
+{
+  "companyName": "House of Engineers Pvt. Ltd.",
+  "brandTagline": "Industrial Engineering & Custom Metal Fabrication",
+  "heroHeadline": "Precision Industrial Engineering & Custom Metal Fabrication",
+  "heroSubheadline": "From certified solar mount structures to precision lathe machining and bespoke architectural metalwork across Punjab.",
+  "primaryPhone": "+92 300 123 4567",
+  "whatsappNumber": "923001234567",
+  "procurementEmail": "info@houseofengineers.pk",
+  "secondaryEmail": "procurement@houseofengineers.pk",
+  "workshopAddress": "Industrial Sector, Lahore, Punjab, Pakistan",
+  "workingHours": "Monday – Saturday: 08:00 – 18:00 PKT",
+  "coordinates": "31.5204° N, 74.3587° E",
+  "metricBadges": [
+    {
+      "title": "Turnkey Installation",
+      "desc": "Active Across All Punjab Districts"
+    },
+    {
+      "title": "Custom Die & Mold",
+      "desc": "High-Tolerance Micron Lathe Turning"
+    },
+    {
+      "title": "Commercial & Residential",
+      "desc": "Heavy Gantry & High-Tensile Framing"
+    }
+  ],
+  "cadBanner": {
+    "badge": "B2B Procurement & Engineering Consultation",
+    "headline": "Have Technical CAD Drawings or Project Blueprints?",
+    "description": "Submit your AutoCAD DWG/PDF drawings, BOM (Bill of Materials), or request an on-site structural engineer consultation anywhere across Punjab. Our estimating desk provides itemized quotes within 24 hours."
+  }
+}

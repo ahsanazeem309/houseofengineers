@@ -1,0 +1,10 @@
+[
+  {
+    "id": "admin_1",
+    "name": "Chief Engineer / Admin",
+    "email": "admin@houseofengineers.pk",
+    "passwordHash": "$2a$10$Z55fxJNSiNa1ijBRA0zjT.yWqKyMU5WS9DbTaPtVAf4c1WKTtxHb2",
+    "role": "superadmin",
+    "createdAt": "2026-09-21T11:00:41.554Z"
+  }
+]

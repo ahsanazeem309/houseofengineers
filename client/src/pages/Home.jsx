@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSiteContent } from '../context/SiteContentContext';
 import { 
   Wrench, 
   Sun, 
@@ -17,10 +18,10 @@ import {
   Building2,
   Factory
 } from 'lucide-react';
-import { servicesCategories } from '../data/servicesData';
 import ServiceCard from '../components/ServiceCard';
 
 export default function Home() {
+  const { settings, services } = useSiteContent();
   const valueProps = [
     {
       title: 'In-House Lathe Machine Setups',
@@ -75,12 +76,12 @@ export default function Home() {
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              Precision Industrial Engineering &amp; Custom Metal Fabrication
+              {settings?.heroHeadline || 'Precision Industrial Engineering & Custom Metal Fabrication'}
             </h1>
 
             {/* Sub-headline */}
             <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed">
-              From certified solar mount structures to precision lathe machining and bespoke architectural metalwork across Punjab.
+              {settings?.heroSubheadline || 'From certified solar mount structures to precision lathe machining and bespoke architectural metalwork across Punjab.'}
             </p>
 
             {/* Action Buttons */}
@@ -103,41 +104,23 @@ export default function Home() {
 
             {/* Fast Metric Badges */}
             <div className="pt-8 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-md flex items-center gap-3">
-                <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
-                <div className="flex flex-col">
-                  <span className="text-xs font-bold text-white uppercase tracking-wider">
-                    Turnkey Installation
-                  </span>
-                  <span className="text-[11px] text-slate-400">
-                    Active Across All Punjab Districts
-                  </span>
+              {(settings?.metricBadges || [
+                { title: 'Turnkey Installation', desc: 'Active Across All Punjab Districts' },
+                { title: 'Custom Die & Mold', desc: 'High-Tolerance Micron Lathe Turning' },
+                { title: 'Commercial & Residential', desc: 'Heavy Gantry & High-Tensile Framing' }
+              ]).map((badge, idx) => (
+                <div key={idx} className="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-md flex items-center gap-3">
+                  <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+                  <div className="flex flex-col">
+                    <span className="text-xs font-bold text-white uppercase tracking-wider">
+                      {badge.title}
+                    </span>
+                    <span className="text-[11px] text-slate-400">
+                      {badge.desc}
+                    </span>
+                  </div>
                 </div>
-              </div>
-
-              <div className="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-md flex items-center gap-3">
-                <Cog className="w-5 h-5 text-brand-orange shrink-0" />
-                <div className="flex flex-col">
-                  <span className="text-xs font-bold text-white uppercase tracking-wider">
-                    Custom Die &amp; Mold
-                  </span>
-                  <span className="text-[11px] text-slate-400">
-                    High-Tolerance Micron Lathe Turning
-                  </span>
-                </div>
-              </div>
-
-              <div className="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-md flex items-center gap-3">
-                <Building2 className="w-5 h-5 text-brand-blue-light shrink-0" />
-                <div className="flex flex-col">
-                  <span className="text-xs font-bold text-white uppercase tracking-wider">
-                    Commercial &amp; Residential
-                  </span>
-                  <span className="text-[11px] text-slate-400">
-                    Heavy Gantry &amp; High-Tensile Framing
-                  </span>
-                </div>
-              </div>
+              ))}
             </div>
 
           </div>
@@ -171,7 +154,7 @@ export default function Home() {
 
         {/* 3 Interactive Feature Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {servicesCategories.map((service) => (
+          {(services || []).slice(0, 3).map((service) => (
             <ServiceCard key={service.id} service={service} isDetailed={false} />
           ))}
         </div>

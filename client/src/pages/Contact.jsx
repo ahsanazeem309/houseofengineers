@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSiteContent } from '../context/SiteContentContext';
 import { 
   MapPin, 
   Phone, 
@@ -9,14 +10,15 @@ import {
   CheckCircle2, 
   AlertCircle, 
   FileText, 
-  ExternalLink,
-  ShieldCheck,
-  Building,
-  MessageSquare
+  ExternalLink, 
+  ShieldCheck, 
+  Building, 
+  MessageSquare 
 } from 'lucide-react';
 
 export default function Contact() {
   const location = useLocation();
+  const { settings } = useSiteContent();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -399,7 +401,7 @@ export default function Contact() {
                   <div>
                     <div className="font-bold text-slate-200">Operational Base &amp; Works:</div>
                     <div className="text-slate-300 text-xs sm:text-sm mt-0.5">
-                      Industrial Sector, Lahore, Punjab, Pakistan
+                      {settings?.workshopAddress || 'Industrial Sector, Lahore, Punjab, Pakistan'}
                     </div>
                   </div>
                 </div>
@@ -408,8 +410,8 @@ export default function Contact() {
                   <Phone className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" />
                   <div>
                     <div className="font-bold text-slate-200">Telephone &amp; Procurement:</div>
-                    <a href="tel:+923001234567" className="text-slate-300 hover:text-white text-xs sm:text-sm block">
-                      +92 300 123 4567 (Direct Estimating Desk)
+                    <a href={`tel:${(settings?.primaryPhone || '+923001234567').replace(/[^0-9+]/g, '')}`} className="text-slate-300 hover:text-white text-xs sm:text-sm block">
+                      {settings?.primaryPhone || '+92 300 123 4567'} (Direct Estimating Desk)
                     </a>
                   </div>
                 </div>
@@ -418,12 +420,14 @@ export default function Contact() {
                   <Mail className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" />
                   <div>
                     <div className="font-bold text-slate-200">Official RFQ Emails:</div>
-                    <a href="mailto:info@houseofengineers.pk" className="text-slate-300 hover:text-white text-xs sm:text-sm block">
-                      info@houseofengineers.pk
+                    <a href={`mailto:${settings?.procurementEmail || 'info@houseofengineers.pk'}`} className="text-slate-300 hover:text-white text-xs sm:text-sm block">
+                      {settings?.procurementEmail || 'info@houseofengineers.pk'}
                     </a>
-                    <a href="mailto:procurement@houseofengineers.pk" className="text-slate-300 hover:text-white text-xs sm:text-sm block">
-                      procurement@houseofengineers.pk
-                    </a>
+                    {settings?.secondaryEmail && (
+                      <a href={`mailto:${settings.secondaryEmail}`} className="text-slate-300 hover:text-white text-xs sm:text-sm block">
+                        {settings.secondaryEmail}
+                      </a>
+                    )}
                   </div>
                 </div>
 
@@ -432,7 +436,7 @@ export default function Contact() {
                   <div>
                     <div className="font-bold text-slate-200">Shop Floor Working Hours:</div>
                     <div className="text-slate-300 text-xs sm:text-sm">
-                      Monday to Saturday: 08:00 – 18:00 PKT
+                      {settings?.workingHours || 'Monday to Saturday: 08:00 – 18:00 PKT'}
                     </div>
                     <div className="text-slate-400 text-xs">Sunday: Maintenance &amp; Pre-Scheduled Overhauls</div>
                   </div>
@@ -442,13 +446,13 @@ export default function Contact() {
               {/* WhatsApp Quick Link */}
               <div className="pt-2 border-t border-slate-700">
                 <a
-                  href="https://wa.me/923001234567?text=Inquiry%20regarding%20engineering%20services"
+                  href={`https://wa.me/${(settings?.whatsappNumber || '923001234567')}?text=${encodeURIComponent('Inquiry regarding engineering services from House of Engineers contact desk')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3 px-4 rounded-md bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors shadow-sm"
                 >
                   <MessageSquare className="w-4 h-4 fill-current" />
-                  <span>Chat on WhatsApp (+92 300 123 4567)</span>
+                  <span>Chat on WhatsApp (+{settings?.whatsappNumber || '923001234567'})</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>

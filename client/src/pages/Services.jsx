@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { useSiteContent } from '../context/SiteContentContext';
 import { 
   Sun, 
   Cog, 
@@ -13,21 +14,27 @@ import {
   FileSpreadsheet,
   PhoneCall
 } from 'lucide-react';
-import { servicesCategories } from '../data/servicesData';
 
 export default function Services() {
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState(servicesCategories[0].id);
+  const { services } = useSiteContent();
+  const [activeTab, setActiveTab] = useState(services?.[0]?.id || 'solar-mounting');
 
   useEffect(() => {
-    if (location.hash) {
+    if (services && services.length > 0 && !services.some(s => s.id === activeTab)) {
+      setActiveTab(services[0].id);
+    }
+  }, [services, activeTab]);
+
+  useEffect(() => {
+    if (location.hash && services) {
       const targetId = location.hash.replace('#', '');
-      const matched = servicesCategories.find((s) => s.id === targetId);
+      const matched = services.find((s) => s.id === targetId);
       if (matched) setActiveTab(matched.id);
     }
-  }, [location.hash]);
+  }, [location.hash, services]);
 
-  const activeCategory = servicesCategories.find((s) => s.id === activeTab) || servicesCategories[0];
+  const activeCategory = services?.find((s) => s.id === activeTab) || services?.[0] || {};
 
   return (
     <div className="space-y-12 sm:space-y-16 py-8">

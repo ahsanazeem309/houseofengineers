@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSiteContent } from '../context/SiteContentContext';
 import { 
   Menu, 
   X, 
@@ -7,12 +8,14 @@ import {
   MapPin, 
   Wrench, 
   ChevronRight,
-  ShieldCheck
+  ShieldCheck,
+  Lock
 } from 'lucide-react';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { settings } = useSiteContent();
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -37,7 +40,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4 text-[11px] sm:text-xs">
             <span className="flex items-center gap-1.5 text-slate-200">
               <MapPin className="w-3.5 h-3.5 text-brand-orange" />
-              <span>Workshop & HQ: Lahore, Punjab, Pakistan</span>
+              <span>{settings?.workshopAddress || 'Workshop & HQ: Lahore, Punjab, Pakistan'}</span>
             </span>
             <span className="hidden md:inline-block text-slate-600">|</span>
             <span className="hidden md:flex items-center gap-1.5 text-slate-300">
@@ -47,14 +50,17 @@ export default function Navbar() {
           </div>
           <div className="flex items-center gap-4 text-[11px] sm:text-xs">
             <a 
-              href="tel:+923001234567" 
+              href={`tel:${(settings?.primaryPhone || '+923001234567').replace(/[^0-9+]/g, '')}`} 
               className="flex items-center gap-1.5 hover:text-white transition-colors"
             >
               <Phone className="w-3 h-3 text-brand-orange" />
-              <span>Procurement Desk: +92 300 123 4567</span>
+              <span>Procurement Desk: {settings?.primaryPhone || '+92 300 123 4567'}</span>
             </a>
             <span className="text-slate-600">|</span>
-            <span className="font-mono text-emerald-400">MON - SAT: 08:00 - 18:00</span>
+            <Link to="/admin" className="text-slate-400 hover:text-brand-orange flex items-center gap-1">
+              <Lock className="w-3 h-3" />
+              <span>Admin</span>
+            </Link>
           </div>
         </div>
       </div>

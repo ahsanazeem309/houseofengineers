@@ -1,5 +1,6 @@
 const validator = require('validator');
 const { sendInquiryNotification } = require('../config/mailer');
+const db = require('../data/db');
 
 /**
  * Basic string sanitization to prevent script injection
@@ -65,13 +66,27 @@ const submitContactInquiry = async (req, res) => {
       drawingNote: drawingNote ? sanitizeInput(drawingNote) : ''
     };
 
+    const referenceId = `HOE-${Date.now().toString(36).toUpperCase()}`;
+
+    // Persist to database
+    db.addInquiry({
+      referenceId,
+      name: sanitizedInquiry.name,
+      company: sanitizedInquiry.company,
+      email: sanitizedInquiry.email,
+      phone: sanitizedInquiry.phone,
+      service: sanitizedInquiry.service,
+      message: sanitizedInquiry.message,
+      drawingNote: sanitizedInquiry.drawingNote
+    });
+
     // Dispatch email alert asynchronously
-    await sendInquiryNotification(sanitizedInquiry);
+    await sendInquiryNotification({ ...sanitizedInquiry, referenceId });
 
     return res.status(200).json({
       success: true,
       message: 'Inquiry received successfully. Our engineering team will review your specifications and respond shortly.',
-      referenceId: `HOE-${Date.now().toString(36).toUpperCase()}`
+      referenceId
     });
   } catch (error) {
     console.error('[ContactController] Error processing inquiry:', error);

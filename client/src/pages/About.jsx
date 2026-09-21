@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSiteContent } from '../context/SiteContentContext';
 import { 
   Factory, 
   Cog, 
@@ -9,54 +10,25 @@ import {
   ShieldCheck, 
   Award, 
   CheckCircle2, 
-  ArrowRight,
-  Truck,
-  Wrench,
-  Clock,
-  Sliders
+  ArrowRight, 
+  Truck, 
+  Wrench, 
+  Clock, 
+  Sliders 
 } from 'lucide-react';
 
-export default function About() {
-  const machineryInventory = [
-    {
-      name: 'Mechanical Power Presses (20T - 150T)',
-      category: 'Stamping & Batch Punching',
-      specs: 'Stroke length: 60mm - 180mm | Die bolster area: up to 1000mm x 750mm',
-      description: 'Dedicated fleet of eccentric mechanical presses engineered for high-speed strip feeding, heavy sheet blanking, progressive piercing, and structural bracket embossing.',
-      applications: 'Solar mounting rail brackets, automotive hardware, base plates, electrical fittings.',
-      icon: Factory
-    },
-    {
-      name: 'Heavy Industrial Lathe Centers',
-      category: 'Precision Turning & Milling',
-      specs: 'Turning diameter: up to Ø600mm | Bed length: up to 2,500mm | Accuracy: ±0.01mm',
-      description: 'Heavy geared-head lathes equipped with digital readout (DRO) systems for high-tolerance cylindrical turning, external/internal metric & inch thread chasing, taper turning, and precision boring.',
-      applications: 'Industrial rollers, textile shafts, flanged bushings, splined spindles, coupling sleeves.',
-      icon: Cog
-    },
-    {
-      name: 'Certified Welding Bays (Argon TIG & Heavy MIG)',
-      category: 'Structural Jointing',
-      specs: 'AWS D1.1 structural welding code compliant | AC/DC TIG & 400A MIG/MAG systems',
-      description: 'Specialized fabrication bays for high-load structural joints. Includes specialized argon gas shielding for stainless steel and non-ferrous metals, plus multi-pass submerged arc rigs.',
-      applications: 'Heavy parking shed trusses, cantilever frames, factory gate hinges, pressurized vessels.',
-      icon: Hammer
-    },
-    {
-      name: 'Foundry & Aluminum Casting Bay',
-      category: 'Foundry & Mold Development',
-      specs: 'Alloys: LM6 / A356 foundry grade | Sand casting & gravity die molding setups',
-      description: 'Integrated pattern shop and aluminum foundry capable of pouring bespoke architectural panels, intricate decorative grills, and custom machine housings directly from client CAD or physical samples.',
-      applications: 'Estate balcony railings, geometric facade louvers, machinery casings, ornamental brackets.',
-      icon: Layers
-    }
-  ];
+const iconMap = {
+  Factory,
+  Cog,
+  Hammer,
+  Layers,
+  Wrench
+};
 
-  const punjabDistricts = [
-    'Lahore (HQ & Works)', 'Faisalabad (Textile Belt)', 'Gujranwala (Industrial Hub)',
-    'Sialkot (Export Sector)', 'Rawalpindi & Islamabad', 'Multan & South Punjab',
-    'Sheikhupura & Muridke', 'Sahiwal & Okara', 'Kasur & Chunian'
-  ];
+export default function About() {
+  const { workshop, settings } = useSiteContent();
+  const machineryInventory = workshop?.inventory || [];
+  const punjabDistricts = workshop?.districts || [];
 
   return (
     <div className="space-y-16 sm:space-y-20 py-8">
@@ -178,7 +150,7 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {machineryInventory.map((item, index) => {
-              const Icon = item.icon;
+              const Icon = typeof item.icon === 'string' ? (iconMap[item.icon] || Factory) : (item.icon || Factory);
               return (
                 <div 
                   key={index}

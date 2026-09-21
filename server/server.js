@@ -3,6 +3,9 @@ const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
 const contactRoutes = require('./routes/contactRoutes');
+const authRoutes = require('./routes/authRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+const contentRoutes = require('./routes/contentRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -32,7 +35,7 @@ app.use(
         callback(null, true); // Permissive in dev, can restrict in strict prod
       }
     },
-    methods: ['GET', 'POST', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
   })
@@ -54,6 +57,9 @@ app.use((req, res, next) => {
 
 // API Routes
 app.use('/api', contactRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/content', contentRoutes);
 
 const path = require('path');
 const fs = require('fs');
@@ -102,8 +108,8 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start Server
-if (process.env.NODE_ENV !== 'test') {
+// Start Server only if executed directly (not when imported as a serverless handler)
+if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`====================================================`);
     console.log(` House of Engineers Pvt. Ltd. API Server`);

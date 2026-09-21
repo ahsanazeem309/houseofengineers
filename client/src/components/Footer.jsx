@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSiteContent } from '../context/SiteContentContext';
 import { 
   Wrench, 
   MapPin, 
@@ -8,11 +9,13 @@ import {
   Clock, 
   Shield, 
   ArrowRight,
-  ExternalLink
+  ExternalLink,
+  Lock
 } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { settings, services } = useSiteContent();
 
   return (
     <footer className="bg-brand-slate text-slate-300 border-t border-slate-800">
@@ -145,27 +148,33 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
                 <span className="text-slate-300">
-                  Industrial Area, Lahore, Punjab, Pakistan
+                  {settings?.workshopAddress || 'Industrial Area, Lahore, Punjab, Pakistan'}
                 </span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-brand-orange shrink-0" />
-                <a href="tel:+923001234567" className="text-slate-300 hover:text-white transition-colors">
-                  +92 300 123 4567 (Procurement)
+                <a href={`tel:${(settings?.primaryPhone || '+923001234567').replace(/[^0-9+]/g, '')}`} className="text-slate-300 hover:text-white transition-colors">
+                  {settings?.primaryPhone || '+92 300 123 4567'} (Procurement)
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-brand-orange shrink-0" />
-                <a href="mailto:info@houseofengineers.pk" className="text-slate-300 hover:text-white transition-colors">
-                  info@houseofengineers.pk
+                <a href={`mailto:${settings?.procurementEmail || 'info@houseofengineers.pk'}`} className="text-slate-300 hover:text-white transition-colors">
+                  {settings?.procurementEmail || 'info@houseofengineers.pk'}
                 </a>
               </div>
               <div className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <span className="text-slate-300">
-                  Mon – Sat: 08:00 – 18:00 PKT<br/>
+                  {settings?.workingHours || 'Mon – Sat: 08:00 – 18:00 PKT'}<br/>
                   <span className="text-slate-400 text-xs">Emergency breakdown repairs on request</span>
                 </span>
+              </div>
+              <div className="pt-2">
+                <Link to="/admin" className="text-xs text-slate-400 hover:text-brand-orange flex items-center gap-1.5">
+                  <Lock className="w-3.5 h-3.5" />
+                  <span>Admin Console Login</span>
+                </Link>
               </div>
             </div>
           </div>
