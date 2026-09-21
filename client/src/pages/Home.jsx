@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useSiteContent } from '../context/SiteContentContext';
 import { 
   Wrench, 
@@ -8,60 +9,62 @@ import {
   Hammer, 
   CheckCircle2, 
   ArrowRight, 
-  FileText, 
+  ChevronRight, 
   ShieldCheck, 
-  Cpu, 
-  Layers,
-  MapPin,
-  Clock,
-  Compass,
-  Building2,
-  Factory
+  Factory, 
+  Truck, 
+  Award, 
+  Layers, 
+  MapPin, 
+  Zap, 
+  Calculator 
 } from 'lucide-react';
 import ServiceCard from '../components/ServiceCard';
+import AnimatedCounter from '../components/AnimatedCounter';
+import PageTransition from '../components/PageTransition';
 
 export default function Home() {
   const { settings, services } = useSiteContent();
+
   const valueProps = [
     {
-      title: 'In-House Lathe Machine Setups',
-      description: 'Heavy-duty manual and CNC-assisted lathe centers capable of turning shafts up to Ø600mm with high-tolerance cylindrical grinding, threading, and boring.',
+      title: 'Precision Lathe Turning Bays',
+      description: 'Geared industrial lathe centers turning shafts up to Ø600mm x 2500mm with high-tolerance cylindrical grinding and keyway slotting.',
       icon: Cog,
       metric: '±0.01mm Tolerance'
     },
     {
-      title: 'Heavy Mechanical Power Presses',
-      description: 'Fleet of 20-Ton to 150-Ton mechanical stamping presses dedicated to rapid batch punching, blanking, and multi-stage progressive die tooling.',
+      title: 'Mechanical Power Press Fleet',
+      description: 'Heavy 20-Ton to 150-Ton stamping presses dedicated to rapid batch punching, progressive dies, and solar mounting bracket embossing.',
       icon: Factory,
       metric: '150T Press Fleet'
     },
     {
-      title: 'Certified Structural Welding Bays',
-      description: 'Argon (TIG), MIG/MAG, and shielded metal arc welding stations compliant with AWS D1.1 structural standards for heavy load-bearing frames.',
+      title: 'AWS D1.1 Certified Welding',
+      description: 'Argon (TIG), high-capacity MIG/MAG, and arc welding stations delivering certified full-penetration structural joints for high-wind canopies.',
       icon: Hammer,
       metric: 'AWS D1.1 Certified'
     },
     {
-      title: 'Custom On-Demand B2B Orders',
-      description: 'Rapid turnaround for bespoke engineering replacement parts, proprietary machinery modifications, and certified turnkey solar structures.',
-      icon: Wrench,
-      metric: 'Direct CAD Conversion'
+      title: 'Integrated Aluminum Foundry',
+      description: 'Pattern shop and gravity sand casting foundry producing architectural balcony grills, bespoke machine housings, and custom brackets.',
+      icon: Layers,
+      metric: 'A356 Foundry Melts'
     }
   ];
 
   const clientSegments = [
-    { name: 'Commercial Plazas & Banks', desc: 'Solar arrays, parking canopies & security gates' },
-    { name: 'Textile & Industrial Plants', desc: 'Machinery shafts, conveyor parts & rooftop frameworks' },
-    { name: 'Construction Contractors', desc: 'Structural steel columns, I-beams & custom brackets' },
-    { name: 'Residential Estates', desc: 'Elevated solar structures & architectural cast aluminum' },
+    { name: 'Commercial Plazas & Banks', desc: 'Solar canopies, parking sheds & vault framing' },
+    { name: 'Textile & Industrial Plants', desc: 'Drive shafts, high-tensile brackets & conveyor rollers' },
+    { name: 'Construction Contractors', desc: 'Pre-engineered trusses, columns & structural assemblies' },
+    { name: 'Agricultural Estates', desc: 'Solar tube-well mounts & heavy agricultural implements' },
   ];
 
   return (
-    <div className="space-y-16 sm:space-y-24">
+    <PageTransition className="space-y-16 sm:space-y-24">
       
       {/* 1. HERO SECTION */}
       <section className="relative bg-gradient-to-b from-brand-slate via-slate-900 to-brand-slate text-white pt-16 pb-20 sm:pt-24 sm:pb-28 overflow-hidden border-b border-slate-800">
-        {/* Engineering blueprint subtle grid background */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:24px_24px] pointer-events-none" />
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none" />
 
@@ -69,47 +72,72 @@ export default function Home() {
           <div className="max-w-3xl space-y-6">
             
             {/* Top Verification Tag */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-blue/30 border border-brand-blue/50 text-slate-200 text-xs font-semibold tracking-wide">
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-blue/30 border border-brand-blue/50 text-slate-200 text-xs font-semibold tracking-wide"
+            >
               <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
               <span>Lahore Industrial Workshop &bull; Precision Metal Fabrication</span>
-            </div>
+            </motion.div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            <motion.h1 
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight"
+            >
               {settings?.heroHeadline || 'Precision Industrial Engineering & Custom Metal Fabrication'}
-            </h1>
+            </motion.h1>
 
             {/* Sub-headline */}
-            <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed">
+            <motion.p 
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed"
+            >
               {settings?.heroSubheadline || 'From certified solar mount structures to precision lathe machining and bespoke architectural metalwork across Punjab.'}
-            </p>
+            </motion.p>
 
             {/* Action Buttons */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
+            >
               <Link
                 to="/services"
-                className="btn-primary py-3.5 px-6 text-base font-semibold shadow-md flex items-center justify-center gap-2"
+                className="btn-primary py-3.5 px-6 text-sm sm:text-base font-bold shadow-md flex items-center justify-center gap-2"
               >
-                <span>Explore Capabilities</span>
+                <span>Explore Capabilities Silos</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                to="/contact"
-                className="btn-accent py-3.5 px-6 text-base font-semibold shadow-md flex items-center justify-center gap-2"
+                to="/quote"
+                className="btn-accent py-3.5 px-6 text-sm sm:text-base font-bold shadow-md flex items-center justify-center gap-2"
               >
-                <span>Contact Engineering Team</span>
+                <span>Interactive Quote Estimator</span>
                 <ChevronRight className="w-4 h-4" />
               </Link>
-            </div>
+            </motion.div>
 
             {/* Fast Metric Badges */}
-            <div className="pt-8 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="pt-8 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-3"
+            >
               {(settings?.metricBadges || [
                 { title: 'Turnkey Installation', desc: 'Active Across All Punjab Districts' },
                 { title: 'Custom Die & Mold', desc: 'High-Tolerance Micron Lathe Turning' },
                 { title: 'Commercial & Residential', desc: 'Heavy Gantry & High-Tensile Framing' }
               ]).map((badge, idx) => (
-                <div key={idx} className="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-md flex items-center gap-3">
+                <div key={idx} className="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-lg flex items-center gap-3">
                   <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
                   <div className="flex flex-col">
                     <span className="text-xs font-bold text-white uppercase tracking-wider">
@@ -121,33 +149,67 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
           </div>
         </div>
       </section>
 
-      {/* 2. CORE CAPABILITIES PREVIEW */}
+      {/* 2. ANIMATED INDUSTRIAL METRIC STRIP */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-12 relative z-20">
+        <div className="bg-white rounded-xl border border-brand-border shadow-md p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+          <div>
+            <div className="text-3xl sm:text-4xl font-extrabold text-brand-blue font-mono">
+              <AnimatedCounter to={50} suffix="+ MW" />
+            </div>
+            <div className="text-xs font-bold text-brand-slate uppercase tracking-wider mt-1">Solar Frameworks Fabricated</div>
+            <div className="text-[11px] text-slate-400 mt-0.5">Across Punjab Industrial Zones</div>
+          </div>
+          <div>
+            <div className="text-3xl sm:text-4xl font-extrabold text-brand-slate font-mono">
+              <AnimatedCounter to={150} suffix=" Tons" />
+            </div>
+            <div className="text-xs font-bold text-brand-slate uppercase tracking-wider mt-1">Stamping Press Fleet</div>
+            <div className="text-[11px] text-slate-400 mt-0.5">High-Speed Batch Punching</div>
+          </div>
+          <div>
+            <div className="text-3xl sm:text-4xl font-extrabold text-brand-orange font-mono">
+              <AnimatedCounter to={145} suffix=" km/h" />
+            </div>
+            <div className="text-xs font-bold text-brand-slate uppercase tracking-wider mt-1">Certified Wind Resistance</div>
+            <div className="text-[11px] text-slate-400 mt-0.5">Monsoon & Storm Resilient</div>
+          </div>
+          <div>
+            <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600 font-mono">
+              <AnimatedCounter to={25} suffix="+ Years" />
+            </div>
+            <div className="text-xs font-bold text-brand-slate uppercase tracking-wider mt-1">HDG ASTM A123 Coating</div>
+            <div className="text-[11px] text-slate-400 mt-0.5">80-100µm Hot-Dip Galvanized</div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. DEDICATED SILO DIVISIONS PREVIEW */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-blue">
-              <span>Fabrication Divisions</span>
+              <span>Engineering Divisions</span>
               <span>&bull;</span>
-              <span>Direct Manufacturing</span>
+              <span>Dedicated Technical Silos</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-slate tracking-tight">
-              Core Engineering Capabilities
+              Core Fabrication Silos
             </h2>
             <p className="text-sm sm:text-base text-brand-charcoal max-w-2xl">
-              Equipped with in-house heavy mechanical power presses, lathe turning bays, argon welding rigs, and aluminum casting facilities.
+              Each division operates specialized equipment at our Lahore workshop with dedicated technical specifications, calculations, and compliance protocols.
             </p>
           </div>
           <Link
             to="/services"
-            className="text-sm font-semibold text-brand-blue hover:text-brand-blue-dark flex items-center gap-1.5 shrink-0"
+            className="text-xs sm:text-sm font-bold text-brand-blue hover:text-brand-blue-dark flex items-center gap-1.5 shrink-0"
           >
-            <span>View All Detailed Specifications</span>
+            <span>View All Engineering Silos</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -160,19 +222,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. VALUE PROPOSITION: DIRECT FABRICATION ADVANTAGES */}
+      {/* 4. VALUE PROPOSITION & MACHINERY HIGHLIGHT */}
       <section className="bg-white py-16 border-y border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3 py-1 rounded">
-              In-House Machine Inventory
+              Direct In-House Manufacturing
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-slate tracking-tight">
-              Direct Fabrication Advantages
+              Lahore Workshop Machinery & Capabilities
             </h2>
             <p className="text-sm sm:text-base text-brand-charcoal">
-              Unlike brokerage firms, House of Engineers manufactures and machines all components in-house at our Lahore engineering workshop—guaranteeing verified material grades, strict tolerances, and competitive factory rates.
+              Unlike sales intermediaries, House of Engineers manufactures and machines all components in-house at our Lahore engineering workshop—guaranteeing certified material grades, repeatable tolerances, and direct factory pricing.
             </p>
           </div>
 
@@ -180,13 +242,15 @@ export default function Home() {
             {valueProps.map((item, index) => {
               const Icon = item.icon;
               return (
-                <div 
+                <motion.div 
                   key={index}
-                  className="bg-brand-neutral border border-brand-border rounded-lg p-6 flex flex-col justify-between hover:border-brand-blue/50 transition-colors"
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.2 }}
+                  className="bg-brand-neutral border border-brand-border rounded-xl p-6 flex flex-col justify-between hover:border-brand-blue/50 transition-colors shadow-sm"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded bg-brand-blue text-white flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-lg bg-brand-blue text-white flex items-center justify-center">
                         <Icon className="w-5 h-5 text-brand-orange stroke-[2.2]" />
                       </div>
                       <span className="text-[11px] font-mono font-bold bg-white text-brand-slate px-2 py-0.5 rounded border border-slate-200">
@@ -196,19 +260,35 @@ export default function Home() {
                     <h3 className="text-base font-bold text-brand-slate">
                       {item.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-brand-charcoal leading-relaxed">
+                    <p className="text-xs text-brand-charcoal leading-relaxed">
                       {item.description}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
 
+          {/* Quick Silo Links Bar */}
+          <div className="mt-12 pt-8 border-t border-slate-200 flex flex-wrap items-center justify-center gap-4 text-xs">
+            <Link to="/workshop" className="btn-outline py-2.5 px-4 font-bold flex items-center gap-2">
+              <Factory className="w-4 h-4 text-brand-blue" />
+              <span>Tour Workshop Machinery Fleet →</span>
+            </Link>
+            <Link to="/quality-standards" className="btn-outline py-2.5 px-4 font-bold flex items-center gap-2">
+              <Award className="w-4 h-4 text-brand-orange" />
+              <span>Review ASTM & AWS Standards →</span>
+            </Link>
+            <Link to="/portfolio" className="btn-outline py-2.5 px-4 font-bold flex items-center gap-2">
+              <Wrench className="w-4 h-4 text-brand-blue" />
+              <span>Inspect Case Studies & Blueprints →</span>
+            </Link>
+          </div>
+
           {/* Client Sector Alignment Strip */}
-          <div className="mt-12 pt-8 border-t border-slate-200 grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+          <div className="mt-8 pt-8 border-t border-slate-200 grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
             {clientSegments.map((segment, sIdx) => (
-              <div key={sIdx} className="p-3 bg-slate-50 rounded border border-slate-200">
+              <div key={sIdx} className="p-3.5 bg-slate-50 rounded-lg border border-slate-200">
                 <span className="text-xs font-bold text-slate-800 block">
                   {segment.name}
                 </span>
@@ -222,15 +302,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. CALL TO ACTION BANNER: CAD DRAWING & SITE CONSULTATION */}
+      {/* 5. CALL TO ACTION BANNER: CAD DRAWING & INTERACTIVE RFQ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-        <div className="bg-brand-blue text-white rounded-xl p-8 sm:p-12 shadow-technical-lg relative overflow-hidden">
-          {/* Blueprint grid effect */}
+        <div className="bg-brand-blue text-white rounded-2xl p-8 sm:p-12 shadow-technical-lg relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:20px_20px] pointer-events-none" />
           
           <div className="relative z-10 max-w-3xl space-y-4">
             <span className="text-xs uppercase font-bold tracking-wider px-2.5 py-1 rounded bg-brand-orange text-white">
-              B2B Procurement &amp; Engineering Consultation
+              B2B Procurement &amp; Engineering Estimating
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
               Have Technical CAD Drawings or Project Blueprints?
@@ -241,38 +320,25 @@ export default function Home() {
             
             <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Link
-                to="/contact"
-                className="btn-accent py-3 px-6 text-sm font-bold shadow-md flex items-center justify-center gap-2"
+                to="/quote"
+                className="btn-accent py-3.5 px-6 text-sm font-bold shadow-md flex items-center justify-center gap-2"
               >
-                <span>Share Drawings / Request Quote</span>
+                <span>Launch Interactive Quote Estimator</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="https://wa.me/923001234567?text=Hello%20House%20of%20Engineers%2C%20I%20have%20CAD%20drawings%20for%20an%20engineering%20quotation"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline-white py-3 px-6 text-sm font-semibold flex items-center justify-center gap-2"
+                className="btn-outline-white py-3.5 px-6 text-sm font-semibold flex items-center justify-center gap-2"
               >
-                <span>Consult on WhatsApp (+92 300 123 4567)</span>
+                <span>WhatsApp Procurement Desk (+92 300 123 4567)</span>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-    </div>
-  );
-}
-
-function ChevronRight(props) {
-  return (
-    <svg 
-      {...props} 
-      fill="none" 
-      viewBox="0 0 24 24" 
-      stroke="currentColor"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-    </svg>
+    </PageTransition>
   );
 }

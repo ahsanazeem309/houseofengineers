@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSiteContent } from '../context/SiteContentContext';
+import Breadcrumb from '../components/Breadcrumb';
+import PageTransition from '../components/PageTransition';
 import { 
   MapPin, 
   Phone, 
@@ -153,10 +155,16 @@ export default function Contact() {
   };
 
   return (
-    <div className="space-y-12 sm:space-y-16 py-8">
+    <PageTransition className="space-y-12 sm:space-y-16 pb-16">
+      {/* Breadcrumb */}
+      <div className="bg-white border-b border-brand-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb items={[{ label: 'Contact & Procurement Desk' }]} />
+        </div>
+      </div>
       
       {/* 1. HERO HEADER */}
-      <section className="bg-brand-slate text-white py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800 relative overflow-hidden">
+      <section className="bg-brand-slate text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-800 relative overflow-hidden -mt-12 sm:-mt-16">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-3xl space-y-4">
@@ -493,7 +501,6 @@ export default function Contact() {
 
         </div>
       </section>
-
-    </div>
+    </PageTransition>
   );
 }

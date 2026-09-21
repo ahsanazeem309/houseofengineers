@@ -10,11 +10,16 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 
-// Public Pages
+// Public Pages & Dedicated Silos
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
+import ServiceDetail from './pages/ServiceDetail';
 import Portfolio from './pages/Portfolio';
+import ProjectDetail from './pages/ProjectDetail';
+import WorkshopPage from './pages/WorkshopPage';
+import QualityStandards from './pages/QualityStandards';
+import QuoteEstimator from './pages/QuoteEstimator';
 import Contact from './pages/Contact';
 
 // Admin Layout & Pages
@@ -93,13 +98,30 @@ export default function App() {
               <Route path="security" element={<AccountSecurity />} />
             </Route>
 
-            {/* Public Storefront */}
+            {/* Public Storefront & Dedicated Silo Structure */}
             <Route element={<PublicLayout />}>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              
+              {/* Services Hub & Dedicated Silos */}
               <Route path="/services" element={<Services />} />
+              <Route path="/services/:serviceId" element={<ServiceDetail />} />
+              
+              {/* Portfolio Hub & Dedicated Case Study Silos */}
               <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/portfolio/:projectId" element={<ProjectDetail />} />
+              
+              {/* Facility & Quality Silos */}
+              <Route path="/workshop" element={<WorkshopPage />} />
+              <Route path="/quality-standards" element={<QualityStandards />} />
+              
+              {/* Interactive Quotation Silo */}
+              <Route path="/quote" element={<QuoteEstimator />} />
+              <Route path="/rfq" element={<QuoteEstimator />} />
+              
+              {/* Direct Contact */}
               <Route path="/contact" element={<Contact />} />
+              
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
