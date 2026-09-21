@@ -16,7 +16,8 @@ import {
   Bell,
   Image as ImageIcon,
   Globe,
-  FileCode2
+  FileCode2,
+  CheckCircle2
 } from 'lucide-react';
 
 export default function AdminLayout() {
