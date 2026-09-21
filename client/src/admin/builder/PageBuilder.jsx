@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, Navigate, useLocation } from 'react-router-dom';
 import {
   DndContext,
   closestCenter,
@@ -24,25 +24,25 @@ import {
   Save,
   UploadCloud,
   History,
-  Sliders,
+  SlidersHorizontal,
   Plus,
   ArrowLeft,
   Undo2,
   Redo2,
   CheckCircle2
 } from 'lucide-react';
-
+import { useAuth } from '../../context/AuthContext';
 import CanvasBlock from './CanvasBlock';
 import ComponentInspector from './ComponentInspector';
 import RevisionHistoryModal from './RevisionHistoryModal';
 import PageSettingsModal from '../pages/PageSettingsModal';
 import { BLOCK_DEFINITIONS, getBlockDefinition, BLOCK_MAP } from './blocks';
 
-const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
-
 export const PageBuilder = () => {
   const { pageId } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { token, isAuthenticated, isLoading: authLoading } = useAuth();
 
   // Core Page & Canvas State
   const [page, setPage] = useState(null);
@@ -69,6 +69,10 @@ export const PageBuilder = () => {
   const [isPublishing, setIsPublishing] = useState(false);
   const [toastMessage, setToastMessage] = useState(null);
 
+  const getAuthToken = () => {
+    return token || localStorage.getItem('hoe_admin_token') || localStorage.getItem('token') || '';
+  };
+
   // Setup DnD Sensors
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -91,10 +95,10 @@ export const PageBuilder = () => {
   const fetchPage = useCallback(async () => {
     try {
       setLoading(true);
-      const token = localStorage.getItem('token') || localStorage.getItem('admin_token');
-      const res = await fetch(`${API_BASE}/admin/pages/${pageId}`, {
+      const authToken = getAuthToken();
+      const res = await fetch(`/api/admin/pages/${pageId}`, {
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${authToken}`
         }
       });
       const data = await res.json();
@@ -113,11 +117,13 @@ export const PageBuilder = () => {
     } finally {
       setLoading(false);
     }
-  }, [pageId]);
+  }, [pageId, token]);
 
   useEffect(() => {
-    fetchPage();
-  }, [fetchPage]);
+    if (isAuthenticated) {
+      fetchPage();
+    }
+  }, [fetchPage, isAuthenticated]);
 
   // Helper to push history state
   const recordHistory = (newBlocks) => {
@@ -246,12 +252,12 @@ export const PageBuilder = () => {
   const handleSaveDraft = async () => {
     setIsSaving(true);
     try {
-      const token = localStorage.getItem('token') || localStorage.getItem('admin_token');
-      const res = await fetch(`${API_BASE}/admin/pages/${pageId}`, {
+      const authToken = getAuthToken();
+      const res = await fetch(`/api/admin/pages/${pageId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${authToken}`
         },
         body: JSON.stringify({
           blocks,
@@ -280,12 +286,12 @@ export const PageBuilder = () => {
     }
     setIsPublishing(true);
     try {
-      const token = localStorage.getItem('token') || localStorage.getItem('admin_token');
-      const res = await fetch(`${API_BASE}/admin/pages/${pageId}`, {
+      const authToken = getAuthToken();
+      const res = await fetch(`/api/admin/pages/${pageId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${authToken}`
         },
         body: JSON.stringify({
           status: 'published',
@@ -311,11 +317,11 @@ export const PageBuilder = () => {
   // Revert to historical revision
   const handleRestoreRevision = async (revisionId) => {
     try {
-      const token = localStorage.getItem('token') || localStorage.getItem('admin_token');
-      const res = await fetch(`${API_BASE}/admin/pages/${pageId}/revert/${revisionId}`, {
+      const authToken = getAuthToken();
+      const res = await fetch(`/api/admin/pages/${pageId}/revert/${revisionId}`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${authToken}`
         }
       });
       const data = await res.json();
@@ -335,12 +341,12 @@ export const PageBuilder = () => {
 
   // Update Page Settings (SEO, title, slug)
   const handleSavePageSettings = async (settingsData) => {
-    const token = localStorage.getItem('token') || localStorage.getItem('admin_token');
-    const res = await fetch(`${API_BASE}/admin/pages/${pageId}`, {
+    const authToken = getAuthToken();
+    const res = await fetch(`/api/admin/pages/${pageId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${authToken}`
       },
       body: JSON.stringify(settingsData)
     });
@@ -353,6 +359,11 @@ export const PageBuilder = () => {
     }
   };
 
+  // Redirect if unauthenticated
+  if (!authLoading && !isAuthenticated) {
+    return <Navigate to="/admin/login" state={{ from: location }} replace />;
+  }
+
   // Currently selected block instance
   const selectedBlock = blocks.find(b => b.id === selectedBlockId);
 
@@ -363,7 +374,7 @@ export const PageBuilder = () => {
     mobile: 'max-w-[390px] mx-auto shadow-2xl rounded-3xl border-8 border-slate-700 overflow-hidden my-6'
   }[viewport] || 'w-full';
 
-  if (loading) {
+  if (loading || authLoading) {
     return (
       <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center text-slate-400">
         <div className="w-12 h-12 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mb-4" />
@@ -500,7 +511,7 @@ export const PageBuilder = () => {
             className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
             title="Page & SEO Settings"
           >
-            <Sliders className="w-5 h-5" />
+            <SlidersHorizontal className="w-5 h-5" />
           </button>
 
           <button

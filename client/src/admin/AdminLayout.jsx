@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, Link, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { 
   LayoutDashboard, 
@@ -62,7 +62,9 @@ export default function AdminLayout() {
     );
   }
 
-  if (!isAuthenticated) return null;
+  if (!isAuthenticated) {
+    return <Navigate to="/admin/login" state={{ from: location }} replace />;
+  }
 
   const navItems = [
     { name: 'Dashboard', path: '/admin', icon: LayoutDashboard, exact: true },

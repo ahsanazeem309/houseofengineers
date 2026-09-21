@@ -5,19 +5,19 @@ import {
   Plus,
   Search,
   PenTool,
-  Sliders,
+  SlidersHorizontal,
   ExternalLink,
   Trash2,
   CheckCircle2,
   AlertCircle,
   Eye
 } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 import PageSettingsModal from './PageSettingsModal';
 import { BLOCK_DEFINITIONS } from '../builder/blocks';
 
-const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
-
 export const PagesManager = () => {
+  const { token, user } = useAuth();
   const [pages, setPages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
@@ -41,13 +41,17 @@ export const PagesManager = () => {
     setTimeout(() => setToastMsg(null), 3000);
   };
 
+  const getAuthToken = () => {
+    return token || localStorage.getItem('hoe_admin_token') || localStorage.getItem('token') || '';
+  };
+
   const fetchPages = async () => {
     try {
       setLoading(true);
-      const token = localStorage.getItem('token') || localStorage.getItem('admin_token');
-      const res = await fetch(`${API_BASE}/admin/pages`, {
+      const authToken = getAuthToken();
+      const res = await fetch('/api/admin/pages', {
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${authToken}`
         }
       });
       const data = await res.json();
@@ -107,12 +111,12 @@ export const PagesManager = () => {
         if (ctaDef) starterBlocks.push(ctaDef.createDefault());
       }
 
-      const token = localStorage.getItem('token') || localStorage.getItem('admin_token');
-      const res = await fetch(`${API_BASE}/admin/pages`, {
+      const authToken = getAuthToken();
+      const res = await fetch('/api/admin/pages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${authToken}`
         },
         body: JSON.stringify({
           title: newTitle.trim(),
@@ -152,11 +156,11 @@ export const PagesManager = () => {
     }
 
     try {
-      const token = localStorage.getItem('token') || localStorage.getItem('admin_token');
-      const res = await fetch(`${API_BASE}/admin/pages/${page.id}`, {
+      const authToken = getAuthToken();
+      const res = await fetch(`/api/admin/pages/${page.id}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${authToken}`
         }
       });
       const data = await res.json();
@@ -164,7 +168,7 @@ export const PagesManager = () => {
         showToast(data.message || 'Page deleted.');
         fetchPages();
       } else {
-        alert(data.message || 'Delete failed. (Ensure you have superadmin privileges)');
+        alert(data.message || 'Delete failed. (Superadmin privileges required)');
       }
     } catch (err) {
       console.error('Delete error:', err);
@@ -175,10 +179,10 @@ export const PagesManager = () => {
   // Open settings modal for a specific page
   const openSettings = async (pageId) => {
     try {
-      const token = localStorage.getItem('token') || localStorage.getItem('admin_token');
-      const res = await fetch(`${API_BASE}/admin/pages/${pageId}`, {
+      const authToken = getAuthToken();
+      const res = await fetch(`/api/admin/pages/${pageId}`, {
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${authToken}`
         }
       });
       const data = await res.json();
@@ -193,12 +197,12 @@ export const PagesManager = () => {
 
   const handleSaveSettingsFromModal = async (updatedFields) => {
     if (!selectedPageForSettings) return;
-    const token = localStorage.getItem('token') || localStorage.getItem('admin_token');
-    const res = await fetch(`${API_BASE}/admin/pages/${selectedPageForSettings.id}`, {
+    const authToken = getAuthToken();
+    const res = await fetch(`/api/admin/pages/${selectedPageForSettings.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${authToken}`
       },
       body: JSON.stringify(updatedFields)
     });
@@ -211,12 +215,13 @@ export const PagesManager = () => {
     }
   };
 
-  // Filtered pages list
+  // Filtered pages list with strict null safety
   const filteredPages = pages.filter(p => {
-    const matchesSearch =
-      p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.slug.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesStatus = filterStatus === 'all' || p.status === filterStatus;
+    const titleStr = (p?.title || '').toLowerCase();
+    const slugStr = (p?.slug || '').toLowerCase();
+    const query = (searchQuery || '').toLowerCase();
+    const matchesSearch = titleStr.includes(query) || slugStr.includes(query);
+    const matchesStatus = filterStatus === 'all' || p?.status === filterStatus;
     return matchesSearch && matchesStatus;
   });
 
@@ -297,11 +302,13 @@ export const PagesManager = () => {
               <tbody className="divide-y divide-slate-800">
                 {filteredPages.map((page) => {
                   const isHome = page.slug === '/';
-                  const dateStr = new Date(page.updatedAt || Date.now()).toLocaleDateString(undefined, {
-                    month: 'short',
-                    day: 'numeric',
-                    year: 'numeric'
-                  });
+                  const dateStr = page.updatedAt
+                    ? new Date(page.updatedAt).toLocaleDateString(undefined, {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric'
+                      })
+                    : 'Recent';
 
                   return (
                     <tr key={page.id} className="hover:bg-slate-800/40 transition-colors">
@@ -364,7 +371,7 @@ export const PagesManager = () => {
                             className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-700"
                             title="Configure Route & SEO Metadata"
                           >
-                            <Sliders className="w-4 h-4" />
+                            <SlidersHorizontal className="w-4 h-4" />
                           </button>
 
                           {/* View Live */}
