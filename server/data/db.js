@@ -35,7 +35,9 @@ const memoryCache = {
   inquiries: null,
   users: null,
   pages: null,
-  media: null
+  media: null,
+  posts: null,
+  schema: null
 };
 
 /**
@@ -474,6 +476,174 @@ const db = {
     if (filtered.length === pages.length) return false;
     writeJson('pages.json', filtered);
     return true;
+  },
+
+  // ==========================================
+  // Blog Posts Store
+  // ==========================================
+  getPosts: (options = {}) => {
+    const posts = readJson('posts.json', []);
+    const { category, tag, search, status, page = 1, limit = 10, includeDrafts = false } = options;
+
+    let filtered = posts;
+
+    // Filter by publication status
+    if (!includeDrafts) {
+      filtered = filtered.filter(p => p.status === 'published');
+    } else if (status && status !== 'all') {
+      filtered = filtered.filter(p => p.status === status);
+    }
+
+    // Filter by Category
+    if (category && category !== 'all') {
+      filtered = filtered.filter(p => (p.category || '').toLowerCase() === category.toLowerCase());
+    }
+
+    // Filter by Tag
+    if (tag) {
+      filtered = filtered.filter(p => Array.isArray(p.tags) && p.tags.some(t => t.toLowerCase() === tag.toLowerCase()));
+    }
+
+    // Search filter
+    if (search) {
+      const q = search.toLowerCase();
+      filtered = filtered.filter(p =>
+        (p.title && p.title.toLowerCase().includes(q)) ||
+        (p.excerpt && p.excerpt.toLowerCase().includes(q)) ||
+        (p.content && p.content.toLowerCase().includes(q))
+      );
+    }
+
+    // Sort by publishedAt or createdAt descending
+    filtered.sort((a, b) => new Date(b.publishedAt || b.createdAt || 0) - new Date(a.publishedAt || a.createdAt || 0));
+
+    const total = filtered.length;
+    const startIndex = (page - 1) * limit;
+    const paginated = filtered.slice(startIndex, startIndex + limit);
+
+    return {
+      posts: paginated,
+      total,
+      page,
+      limit,
+      totalPages: Math.ceil(total / limit)
+    };
+  },
+
+  getPostBySlug: (slug, includeDraft = false) => {
+    const posts = readJson('posts.json', []);
+    const post = posts.find(p => p.slug === slug || p.slug === `/${slug}`.replace(/^\/\//, '/'));
+    if (!post) return null;
+    if (!includeDraft && post.status !== 'published') return null;
+    return post;
+  },
+
+  getPostById: (id) => {
+    const posts = readJson('posts.json', []);
+    return posts.find(p => p.id === id) || null;
+  },
+
+  createPost: (postData) => {
+    const posts = readJson('posts.json', []);
+    const id = postData.id || `post-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
+    
+    // Auto slugify if missing
+    let slug = postData.slug;
+    if (!slug && postData.title) {
+      slug = postData.title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+    }
+
+    const newPost = {
+      id,
+      slug: slug || `article-${Date.now()}`,
+      title: postData.title || 'Untitled Technical Article',
+      excerpt: postData.excerpt || '',
+      content: postData.content || '',
+      category: postData.category || 'Solar Engineering',
+      tags: Array.isArray(postData.tags) ? postData.tags : [],
+      author: postData.author || 'House of Engineers',
+      authorRole: postData.authorRole || 'Engineering Editorial Team',
+      readingTime: postData.readingTime || '5 min read',
+      status: postData.status || 'draft',
+      featured: Boolean(postData.featured),
+      coverImage: postData.coverImage || '',
+      seo: {
+        metaTitle: postData.seo?.metaTitle || postData.title,
+        metaDescription: postData.seo?.metaDescription || postData.excerpt,
+        keywords: Array.isArray(postData.seo?.keywords) ? postData.seo.keywords : [],
+        ogImage: postData.seo?.ogImage || postData.coverImage
+      },
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      publishedAt: postData.status === 'published' ? new Date().toISOString() : null
+    };
+
+    posts.unshift(newPost);
+    writeJson('posts.json', posts);
+    return newPost;
+  },
+
+  updatePost: (id, postData) => {
+    const posts = readJson('posts.json', []);
+    const index = posts.findIndex(p => p.id === id);
+    if (index === -1) return null;
+
+    const existing = posts[index];
+    const willPublish = postData.status === 'published' && existing.status !== 'published';
+
+    posts[index] = {
+      ...existing,
+      ...postData,
+      id: existing.id,
+      seo: {
+        metaTitle: postData.seo?.metaTitle ?? existing.seo?.metaTitle,
+        metaDescription: postData.seo?.metaDescription ?? existing.seo?.metaDescription,
+        keywords: postData.seo?.keywords ?? existing.seo?.keywords,
+        ogImage: postData.seo?.ogImage ?? existing.seo?.ogImage
+      },
+      updatedAt: new Date().toISOString(),
+      publishedAt: willPublish ? new Date().toISOString() : (postData.publishedAt || existing.publishedAt)
+    };
+
+    writeJson('posts.json', posts);
+    return posts[index];
+  },
+
+  deletePost: (id) => {
+    const posts = readJson('posts.json', []);
+    const filtered = posts.filter(p => p.id !== id);
+    if (filtered.length === posts.length) return false;
+    writeJson('posts.json', filtered);
+    return true;
+  },
+
+  // ==========================================
+  // Schema.org Structured Data Store
+  // ==========================================
+  getSchema: () => {
+    return readJson('schema.json', {
+      organization: {
+        enabled: true,
+        schemaType: 'LocalBusiness',
+        name: 'House of Engineers Pvt. Ltd.',
+        url: 'https://houseofengineers.pk'
+      },
+      customJsonLd: ''
+    });
+  },
+
+  updateSchema: (schemaData) => {
+    const current = readJson('schema.json', {});
+    const updated = {
+      ...current,
+      ...schemaData,
+      updatedAt: new Date().toISOString()
+    };
+    writeJson('schema.json', updated);
+    return updated;
   }
 };
 

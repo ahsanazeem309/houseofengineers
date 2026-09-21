@@ -116,6 +116,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/blog" className="text-slate-300 hover:text-brand-orange transition-colors">
+                  Engineering Journal &amp; Insights
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" className="text-slate-300 hover:text-white transition-colors">
                   Request Quotation / RFQ
                 </Link>

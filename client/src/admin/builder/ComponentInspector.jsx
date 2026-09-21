@@ -54,6 +54,7 @@ export const ComponentInspector = ({
 
   // On asset chosen from modal
   const handleAssetSelect = (asset) => {
+    if (!asset || !asset.url) return;
     const url = asset.url;
     if (mediaTargetField.startsWith('content.')) {
       const field = mediaTargetField.replace('content.', '');
@@ -70,6 +71,8 @@ export const ComponentInspector = ({
         items[idx] = { ...items[idx], [field]: url };
         handleContentChange('items', items);
       }
+    } else if (mediaTargetField) {
+      handleContentChange(mediaTargetField, url);
     }
     setIsMediaModalOpen(false);
   };
@@ -796,6 +799,7 @@ export const ComponentInspector = ({
       <MediaSelectorModal
         isOpen={isMediaModalOpen}
         onClose={() => setIsMediaModalOpen(false)}
+        onSelect={handleAssetSelect}
         onSelectAsset={handleAssetSelect}
       />
     </aside>

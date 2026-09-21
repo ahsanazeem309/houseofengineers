@@ -16,10 +16,13 @@ export default function MediaSelectorModal({
   isOpen,
   onClose,
   onSelect,
+  onSelectAsset,
   currentUrl = '',
   title = 'Select Media Asset'
 }) {
   const { token } = useAuth();
+  const selectCallback = onSelectAsset || onSelect;
+  const getAuthToken = () => token || localStorage.getItem('hoe_admin_token') || localStorage.getItem('token') || '';
 
   const [activeTab, setActiveTab] = useState('library'); // 'library' | 'upload' | 'external'
   const [assets, setAssets] = useState([]);
@@ -36,13 +39,14 @@ export default function MediaSelectorModal({
     if (!isOpen || activeTab !== 'library') return;
     setLoading(true);
     try {
+      const authToken = getAuthToken();
       const params = new URLSearchParams({
         page: '1',
         limit: '36',
         search: search.trim()
       });
       const res = await fetch(`/api/admin/media?${params.toString()}`, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${authToken}` }
       });
       const data = await res.json();
       if (res.ok && data.success) {
@@ -64,19 +68,23 @@ export default function MediaSelectorModal({
   const handleConfirm = () => {
     if (activeTab === 'external') {
       if (!externalUrl.trim()) return;
-      onSelect({
-        url: externalUrl.trim(),
-        altText: externalAlt.trim(),
-        dimensions: { width: 0, height: 0 }
-      });
+      if (selectCallback) {
+        selectCallback({
+          url: externalUrl.trim(),
+          altText: externalAlt.trim(),
+          dimensions: { width: 0, height: 0 }
+        });
+      }
       onClose();
     } else {
       if (!selectedAsset) return;
-      onSelect({
-        url: selectedAsset.url,
-        altText: selectedAsset.altText || selectedAsset.originalName || '',
-        dimensions: selectedAsset.dimensions || { width: 0, height: 0 }
-      });
+      if (selectCallback) {
+        selectCallback({
+          url: selectedAsset.url,
+          altText: selectedAsset.altText || selectedAsset.originalName || '',
+          dimensions: selectedAsset.dimensions || { width: 0, height: 0 }
+        });
+      }
       onClose();
     }
   };

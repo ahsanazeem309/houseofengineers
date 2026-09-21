@@ -77,6 +77,7 @@ export default function Navbar() {
     { name: 'Workshop Fleet', path: '/workshop' },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Quality Standards', path: '/quality-standards' },
+    { name: 'Insights', path: '/blog' },
     { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];

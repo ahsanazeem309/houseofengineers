@@ -1,0 +1,45 @@
+{
+  "organization": {
+    "enabled": true,
+    "schemaType": "LocalBusiness",
+    "name": "House of Engineers Pvt. Ltd.",
+    "legalName": "House of Engineers (Pvt.) Limited",
+    "url": "https://houseofengineers.pk",
+    "logo": "https://houseofengineers.pk/logo.png",
+    "description": "Leading industrial engineering, certified solar mounting structure fabrication, precision lathe machining, and metal manufacturing in Lahore, Punjab, Pakistan.",
+    "telephone": "+92 321 4991253",
+    "email": "info@houseofengineers.pk",
+    "address": {
+      "streetAddress": "Industrial Sector, Lahore",
+      "addressLocality": "Lahore",
+      "addressRegion": "Punjab",
+      "postalCode": "54000",
+      "addressCountry": "PK"
+    },
+    "geo": {
+      "latitude": 31.5204,
+      "longitude": 74.3587
+    },
+    "openingHoursSpecification": [
+      {
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/house-of-engineers-pk",
+      "https://facebook.com/houseofengineers.pk"
+    ],
+    "priceRange": "$$$"
+  },
+  "customJsonLd": "",
+  "updatedAt": "2026-09-21T22:34:51.806Z"
+}

@@ -330,6 +330,10 @@ export const PageSettingsModal = ({
       <MediaSelectorModal
         isOpen={isMediaModalOpen}
         onClose={() => setIsMediaModalOpen(false)}
+        onSelect={(asset) => {
+          setOgImage(asset.url);
+          setIsMediaModalOpen(false);
+        }}
         onSelectAsset={(asset) => {
           setOgImage(asset.url);
           setIsMediaModalOpen(false);

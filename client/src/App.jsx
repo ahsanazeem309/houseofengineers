@@ -9,6 +9,7 @@ import { SiteContentProvider } from './context/SiteContentContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import { GlobalOrganizationSchema } from './components/SchemaJsonLd';
 
 // Public Pages & Dedicated Silos
 import Home from './pages/Home';
@@ -35,6 +36,11 @@ import WorkshopManager from './admin/pages/WorkshopManager';
 import AccountSecurity from './admin/pages/AccountSecurity';
 import PagesManager from './admin/pages/PagesManager';
 import PageBuilder from './admin/builder/PageBuilder';
+import BlogManager from './admin/blog/BlogManager';
+import BlogPostEditor from './admin/blog/BlogPostEditor';
+import SchemaEditor from './admin/schema/SchemaEditor';
+import Blog from './pages/Blog';
+import BlogPostDetail from './pages/BlogPostDetail';
 import DynamicPage from './pages/DynamicPage';
 
 // Scroll to top on navigation
@@ -50,6 +56,7 @@ function ScrollToTop() {
 function PublicLayout() {
   return (
     <div className="min-h-screen flex flex-col bg-brand-neutral font-sans selection:bg-brand-blue selection:text-white">
+      <GlobalOrganizationSchema />
       <Navbar />
       <main className="flex-1">
         <Outlet />
@@ -97,6 +104,10 @@ export default function App() {
               <Route path="inquiries" element={<InquiriesManager />} />
               <Route path="media" element={<MediaManager />} />
               <Route path="pages" element={<PagesManager />} />
+              <Route path="blog" element={<BlogManager />} />
+              <Route path="blog/new" element={<BlogPostEditor />} />
+              <Route path="blog/edit/:id" element={<BlogPostEditor />} />
+              <Route path="schema" element={<SchemaEditor />} />
               <Route path="settings" element={<SiteSettingsEditor />} />
               <Route path="services" element={<ServicesManager />} />
               <Route path="portfolio" element={<PortfolioManager />} />
@@ -112,6 +123,10 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               
+              {/* Engineering Blog / Technical Journal */}
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPostDetail />} />
+
               {/* Services Hub & Dedicated Silos */}
               <Route path="/services" element={<Services />} />
               <Route path="/services/:serviceId" element={<ServiceDetail />} />

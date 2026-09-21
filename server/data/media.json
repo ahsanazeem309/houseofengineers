@@ -1,5 +1,20 @@
 [
   {
+    "id": "asset-1790029117625-fdmzx",
+    "filename": "1790029117405-0kme6z-feature-image-bespke.webp",
+    "originalName": "feature image bespke.png",
+    "url": "/uploads/1790029117405-0kme6z-feature-image-bespke.webp",
+    "mimeType": "image/webp",
+    "fileSize": 93618,
+    "dimensions": {
+      "width": 911,
+      "height": 1024
+    },
+    "altText": "feature image bespke",
+    "uploadedAt": "2026-09-21T22:18:37.625Z",
+    "uploadedBy": "admin@houseofengineers.pk"
+  },
+  {
     "id": "asset-demo-1",
     "filename": "solar-mounting-c-channel.webp",
     "originalName": "solar-mounting-c-channel.png",

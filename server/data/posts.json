@@ -1,0 +1,100 @@
+[
+  {
+    "id": "post-solar-pv-mounting-guide",
+    "slug": "commercial-solar-mounting-guide-pakistan",
+    "title": "Turnkey Solar Mounting Structures: Engineering for 145 km/h Wind Load in Punjab",
+    "excerpt": "A technical breakdown of structural design codes, foundation anchor specs, and ASTM A123 hot-dip galvanizing for commercial rooftop and ground-mounted solar frameworks.",
+    "category": "Solar Engineering",
+    "tags": [
+      "Solar Structures",
+      "Wind Load",
+      "ASTM A123",
+      "HDG Steel",
+      "Punjab Projects"
+    ],
+    "author": "Engr. Ahsan Azeem",
+    "authorRole": "Chief Structural Engineer",
+    "readingTime": "6 min read",
+    "status": "published",
+    "featured": true,
+    "coverImage": "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1200&q=80",
+    "content": "<h2>High-Velocity Wind Engineering for Solar Frameworks</h2><p>In Pakistan's Punjab province, extreme seasonal weather patterns—ranging from monsoon storm gusts to high convective winds reaching 145 km/h—demand rigorous engineering compliance. Under-engineered solar mount structures risk deflection, fatigue fracturing, and catastrophic array detachment.</p><h3>Structural Analysis & Steel Section Profiles</h3><p>At <strong>House of Engineers Pvt. Ltd.</strong>, we engineer C-channel purlins, rafters, and cantilever brackets using high-tensile structural steel (Q235B and ASTM A36 equivalents). All member sizes are validated through finite element analysis (FEA) and compliant with ASCE 7-10 wind load standards.</p><ul><li><strong>Galvanization Coating:</strong> ASTM A123 hot-dip galvanizing with minimum 85-micron (610 g/m²) zinc thickness, delivering 25+ years rust-free operational life.</li><li><strong>Foundation Anchors:</strong> Chemical capsule anchoring using grade 8.8 high-tensile threaded studs embedded into reinforced concrete pedestals.</li><li><strong>Custom Tilt Angles:</strong> Optimized 12° to 24° tilt brackets calibrated for maximum annual solar irradiance in Lahore, Faisalabad, and South Punjab.</li></ul><blockquote>Every fabrication batch passes destructive weld penetration testing and zinc adhesion peel checks before site dispatch.</blockquote>",
+    "seo": {
+      "metaTitle": "Commercial Solar Mounting Guide: 145 km/h Wind Engineering | House of Engineers",
+      "metaDescription": "Discover technical structural calculations, ASTM A123 galvanizing standards, and wind-load resistance for industrial solar mounting structures in Punjab.",
+      "keywords": [
+        "solar mounting structures lahore",
+        "industrial solar pakistan",
+        "astm a123 galvanizing",
+        "wind load solar structures"
+      ],
+      "ogImage": "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1200&q=80"
+    },
+    "publishedAt": "2026-09-15T09:00:00.000Z",
+    "updatedAt": "2026-09-15T09:00:00.000Z"
+  },
+  {
+    "id": "post-precision-lathe-vs-cnc",
+    "slug": "precision-lathe-machining-tolerance-guide",
+    "title": "Precision Lathe Machining vs. CNC Turning: High-Tolerance Shaft Fabrication",
+    "excerpt": "Evaluating ±0.01mm concentricity, cylindrical grinding, and keyway slotting for textile rollers, flanged bushings, and industrial drive shafts.",
+    "category": "Machining & Tooling",
+    "tags": [
+      "Lathe Machining",
+      "Shaft Turning",
+      "Tolerances",
+      "Industrial Rollers"
+    ],
+    "author": "Tariq Mahmood",
+    "authorRole": "Head of Machining Works",
+    "readingTime": "5 min read",
+    "status": "published",
+    "featured": false,
+    "coverImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+    "content": "<h2>Achieving ±0.01mm Dimensional Accuracies</h2><p>Industrial manufacturing plants in Faisalabad, Gujranwala, and Lahore depend on rotating machinery that operates at thousands of RPMs. Even a micro-meter runout can trigger bearing seizure, severe vibration harmonics, and unexpected plant downtime.</p><h3>The Role of DRO-Equipped Geared Lathe Centers</h3><p>Our machine shop maintains geared industrial lathes capable of swinging components up to Ø600mm across a 2,500mm bed length. Equipped with 3-axis Digital Readout (DRO) optical scales, our technicians achieve true concentricity on long splined shafts, textile calender rollers, and pump impellers.</p><h3>Key Machining Capabilities</h3><ol><li><strong>Precision Boring & Bushing Fits:</strong> H7/g6 interference and clearance fits for bronze and bronze-graphite flanged bearings.</li><li><strong>Power Thread Chasing:</strong> Metric, Whitworth, and ACME trapezoidal threads for heavy mechanical jacks and leadscrews.</li><li><strong>Cylindrical Grinding Finish:</strong> Ra 0.8 micron surface finish eliminating micro-grooves and preventing premature seal wear.</li></ol>",
+    "seo": {
+      "metaTitle": "Precision Lathe Machining & Shaft Turning Tolerances | House of Engineers",
+      "metaDescription": "Explore micron-tolerance shaft turning, keyway milling, and thread chasing techniques at our Lahore precision machine shop.",
+      "keywords": [
+        "lathe machining lahore",
+        "industrial shaft turning",
+        "precision machine shop punjab"
+      ],
+      "ogImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80"
+    },
+    "publishedAt": "2026-09-10T11:30:00.000Z",
+    "updatedAt": "2026-09-10T11:30:00.000Z"
+  },
+  {
+    "id": "post-hot-dip-galvanizing-astm-a123",
+    "slug": "astm-a123-hot-dip-galvanizing-steel-longevity",
+    "title": "ASTM A123 Hot-Dip Galvanizing: Why Zinc Coating Thickness Dictates Steel Longevity",
+    "excerpt": "An in-depth metallurgical look at metallurgical zinc-iron alloy bonding, salt spray test benchmarks, and environmental corrosion zones across Pakistan.",
+    "category": "Quality & Metallurgy",
+    "tags": [
+      "Galvanizing",
+      "ASTM A123",
+      "Corrosion Protection",
+      "Steel Fabrication"
+    ],
+    "author": "Engr. Ahsan Azeem",
+    "authorRole": "Chief Structural Engineer",
+    "readingTime": "4 min read",
+    "status": "published",
+    "featured": false,
+    "coverImage": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80",
+    "content": "<h2>Metallurgical Bonding vs. Surface Painting</h2><p>Unlike conventional spray primers or powder coatings that merely create a physical barrier easily compromised by rock chips or scratches, <strong>hot-dip galvanizing per ASTM A123</strong> produces a series of true metallurgical zinc-iron alloy layers (Gamma, Delta, and Zeta) that are chemically harder than the base steel itself.</p><h3>Cathodic Sacrificial Protection</h3><p>Even if an industrial structure is scratched down to bare steel during rigging or installation, zinc's lower galvanic potential forces it to sacrificially oxidize, protecting the exposed steel substrate from red rust formation.</p><h3>Inspection Criteria at House of Engineers</h3><ul><li><strong>Electromagnetic Thickness Gauge:</strong> Calibrated testing across multiple random spots per batch to ensure compliance with minimum 85-micron specs.</li><li><strong>Hammer Test (Adhesion):</strong> Verification that the galvanized coating does not flake or peel under heavy mechanical impact.</li><li><strong>Flux & Pickling Purity:</strong> Complete acid pickling to strip mill scale before immersion into the 450°C molten zinc bath.</li></ul>",
+    "seo": {
+      "metaTitle": "ASTM A123 Hot-Dip Galvanizing Explained | House of Engineers Pvt Ltd",
+      "metaDescription": "Learn how metallurgical zinc-iron alloy layers provide 25+ years of maintenance-free corrosion resistance for structural steel.",
+      "keywords": [
+        "hot dip galvanizing lahore",
+        "astm a123 standard",
+        "zinc coating thickness"
+      ],
+      "ogImage": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80"
+    },
+    "publishedAt": "2026-09-05T14:00:00.000Z",
+    "updatedAt": "2026-09-05T14:00:00.000Z"
+  }
+]

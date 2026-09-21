@@ -17,7 +17,9 @@ import {
   Image as ImageIcon,
   Globe,
   FileCode2,
-  CheckCircle2
+  CheckCircle2,
+  BookOpen,
+  Code2
 } from 'lucide-react';
 
 export default function AdminLayout() {
@@ -77,6 +79,8 @@ export default function AdminLayout() {
     },
     { name: 'Media Library', path: '/admin/media', icon: ImageIcon },
     { name: 'Pages & Visual Builder', path: '/admin/pages', icon: Globe },
+    { name: 'Blog & Articles', path: '/admin/blog', icon: BookOpen },
+    { name: 'Schema & SEO', path: '/admin/schema', icon: Code2 },
     { name: 'Site Settings & Branding', path: '/admin/settings', icon: Settings },
     { name: 'Services & Capabilities', path: '/admin/services', icon: Wrench },
     { name: 'Portfolio & Projects', path: '/admin/portfolio', icon: Layers },

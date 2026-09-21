@@ -10,6 +10,8 @@ const adminRoutes = require('./routes/adminRoutes');
 const contentRoutes = require('./routes/contentRoutes');
 const mediaRoutes = require('./routes/mediaRoutes');
 const pageRoutes = require('./routes/pageRoutes');
+const blogRoutes = require('./routes/blogRoutes');
+const schemaRoutes = require('./routes/schemaRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -65,6 +67,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/admin/media', mediaRoutes);
 app.use('/api/admin/pages', pageRoutes);
+app.use('/api/admin/posts', blogRoutes);
+app.use('/api/admin/schema', schemaRoutes);
 app.use('/api/content', contentRoutes);
 
 // Secure Static Uploads Serving
@@ -74,9 +78,10 @@ if (!fs.existsSync(uploadsDir)) {
 }
 
 app.use('/uploads', (req, res, next) => {
-  // Enforce non-executable, strict MIME sniffing defense headers
+  // Enforce non-executable, strict MIME sniffing defense headers & allow cross-origin image loading
   res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('Content-Security-Policy', "default-src 'none'; style-src 'unsafe-inline'; sandbox");
+  res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Cache-Control', 'public, max-age=86400');
   next();
 }, express.static(uploadsDir));

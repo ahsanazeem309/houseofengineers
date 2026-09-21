@@ -219,13 +219,1829 @@
     ],
     "revisions": [
       {
+        "id": "rev-1790029168850",
+        "timestamp": "2026-09-21T22:19:28.850Z",
+        "savedBy": "admin@houseofengineers.pk",
+        "summary": "Published live release (3 blocks)",
+        "blocks": [
+          {
+            "id": "blk-hero-1",
+            "type": "hero",
+            "order": 0,
+            "content": {
+              "badge": "Lahore Industrial Workshop • Precision Metal Fabrication",
+              "headline": "Precision Industrial Engineering & Custom Metal Fabrication",
+              "subheadline": "From certified solar mount structures to precision lathe machining and bespoke architectural metalwork across Punjab.",
+              "primaryButton": {
+                "text": "Explore Capabilities",
+                "url": "/services",
+                "variant": "primary"
+              },
+              "secondaryButton": {
+                "text": "Request a Quote",
+                "url": "/quote",
+                "variant": "accent"
+              },
+              "mediaUrl": "",
+              "mediaAlt": "House of Engineers Lahore Workshop"
+            },
+            "styling": {
+              "paddingTop": "xl",
+              "paddingBottom": "xl",
+              "backgroundColor": "#1e293b",
+              "textColor": "#ffffff",
+              "alignment": "left",
+              "containerWidth": "wide"
+            }
+          },
+          {
+            "id": "blk-stats-2",
+            "type": "stats-counter",
+            "order": 1,
+            "content": {
+              "items": [
+                {
+                  "title": "Solar Frameworks",
+                  "stat": "50+",
+                  "suffix": " MW",
+                  "description": "Fabricated Across Punjab"
+                },
+                {
+                  "title": "Press Stamping",
+                  "stat": "150",
+                  "suffix": " Tons",
+                  "description": "Mechanical Press Fleet"
+                },
+                {
+                  "title": "Wind Resistance",
+                  "stat": "145",
+                  "suffix": " km/h",
+                  "description": "Certified Structural Rating"
+                },
+                {
+                  "title": "HDG Rust Barrier",
+                  "stat": "25+",
+                  "suffix": " Years",
+                  "description": "ASTM A123 Galvanizing"
+                }
+              ]
+            },
+            "styling": {
+              "paddingTop": "md",
+              "paddingBottom": "md",
+              "backgroundColor": "#ffffff",
+              "textColor": "#1e293b",
+              "alignment": "center",
+              "containerWidth": "wide"
+            }
+          },
+          {
+            "id": "blk-cta-3",
+            "type": "cta",
+            "order": 2,
+            "content": {
+              "badge": "B2B Procurement Desk",
+              "headline": "Have Technical CAD Drawings or Project Blueprints?",
+              "subheadline": "Submit your AutoCAD DWG/PDF drawings, BOM (Bill of Materials), or request an on-site structural engineer consultation anywhere across Punjab.",
+              "primaryButton": {
+                "text": "Launch Quote Estimator",
+                "url": "/quote",
+                "variant": "accent"
+              },
+              "secondaryButton": {
+                "text": "WhatsApp Consultation",
+                "url": "https://wa.me/923001234567",
+                "variant": "outline"
+              }
+            },
+            "styling": {
+              "paddingTop": "lg",
+              "paddingBottom": "lg",
+              "backgroundColor": "#23588f",
+              "textColor": "#ffffff",
+              "alignment": "left",
+              "containerWidth": "wide"
+            }
+          }
+        ]
+      },
+      {
         "id": "rev-init",
         "timestamp": "2026-09-21T21:05:29.510Z",
         "savedBy": "admin_1",
         "summary": "Initial production baseline layout"
       }
     ],
-    "updatedAt": "2026-09-21T21:05:29.510Z",
-    "publishedAt": "2026-09-21T21:05:29.510Z"
+    "updatedAt": "2026-09-21T22:29:13.571Z",
+    "publishedAt": "2026-09-21T22:29:13.572Z"
+  },
+  {
+    "id": "page-about",
+    "slug": "/about",
+    "title": "About House of Engineers",
+    "status": "published",
+    "seo": {
+      "metaTitle": "About Us | House of Engineers Pvt. Ltd. Lahore",
+      "metaDescription": "Engineering pedigree, certified facility operations, and precision metal manufacturing leadership across Pakistan since establishment.",
+      "keywords": [
+        "about house of engineers",
+        "lahore engineering firm",
+        "pakistan fabrication team"
+      ],
+      "ogImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80"
+    },
+    "blocks": [
+      {
+        "id": "blk-about-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "ENGINEERING CREDENTIALS • ESTABLISHED FACILITY",
+          "heading": "Decades of Precision Industrial Manufacturing & Metal Fabrication",
+          "highlightWord": "Manufacturing",
+          "subheading": "Headquartered in Lahore, House of Engineers Pvt. Ltd. operates dedicated mechanical power presses, industrial lathe bays, AWS-certified welding bays, and an integrated casting foundry.",
+          "primaryCtaText": "Download Corporate Profile",
+          "primaryCtaLink": "/contact",
+          "secondaryCtaText": "Inspect Workshop Fleet",
+          "secondaryCtaLink": "/workshop",
+          "featuredImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "House of Engineers Lahore Facility",
+          "alignment": "left"
+        },
+        "styling": {
+          "paddingTop": "xl",
+          "paddingBottom": "xl",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-about-stats",
+        "type": "stats",
+        "order": 1,
+        "content": {
+          "items": [
+            {
+              "label": "Annual Tonnage Output",
+              "value": "3,500+",
+              "change": "Tons Formed Steel",
+              "icon": "award"
+            },
+            {
+              "label": "Solar Structural Capacity",
+              "value": "50+",
+              "change": "Megawatts Deployed",
+              "icon": "zap"
+            },
+            {
+              "label": "Press Fleet Load",
+              "value": "150",
+              "change": "Tons Stamping Fleet",
+              "icon": "factory"
+            },
+            {
+              "label": "Turnaround Benchmark",
+              "value": "99.2%",
+              "change": "On-Time Dispatch",
+              "icon": "users"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#0f172a",
+          "textColor": "#ffffff",
+          "containerWidth": "boxed"
+        }
+      },
+      {
+        "id": "blk-about-grid",
+        "type": "columnsGrid",
+        "order": 2,
+        "content": {
+          "columns": 3,
+          "heading": "Our Engineering Philosophy & Pillars",
+          "subheading": "Strict adherence to global engineering standards ensures high structural reliability across all project categories.",
+          "items": [
+            {
+              "title": "Rigorous Metallurgy & Material Traceability",
+              "description": "All mild steel, tool steel, and aluminum ingots come with mill test certificates (MTC) verifying tensile strength and chemical composition.",
+              "badge": "ASTM & EN Standards",
+              "linkUrl": "/quality-standards",
+              "linkText": "Inspect Testing Regimes"
+            },
+            {
+              "title": "In-House Tool & Die Development",
+              "description": "Our toolmakers develop progressive stamping dies, deep draw fixtures, and precision punch tooling directly from CAD models.",
+              "badge": "Micron Accuracy",
+              "linkUrl": "/services",
+              "linkText": "Tooling Capabilities"
+            },
+            {
+              "title": "Turnkey Field Installation Teams",
+              "description": "Certified rigging, mobile cranes, and certified welders deployed on-site across Lahore, Faisalabad, Sialkot, and Rawalpindi.",
+              "badge": "Turnkey Execution",
+              "linkUrl": "/contact",
+              "linkText": "Request Engineering Team"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#020617",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-about-cta",
+        "type": "cta",
+        "order": 3,
+        "content": {
+          "badge": "B2B Procurement & Consultation",
+          "headline": "Consult with Our Chief Structural Engineers",
+          "subheadline": "Schedule a facility walkthrough or review technical drawings at our Lahore workshop.",
+          "primaryText": "Schedule Workshop Visit",
+          "primaryLink": "/contact",
+          "secondaryText": "Request Project Quotation",
+          "secondaryLink": "/quote",
+          "alignment": "center"
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "boxed"
+        }
+      }
+    ],
+    "publishedBlocks": [
+      {
+        "id": "blk-about-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "ENGINEERING CREDENTIALS • ESTABLISHED FACILITY",
+          "heading": "Decades of Precision Industrial Manufacturing & Metal Fabrication",
+          "highlightWord": "Manufacturing",
+          "subheading": "Headquartered in Lahore, House of Engineers Pvt. Ltd. operates dedicated mechanical power presses, industrial lathe bays, AWS-certified welding bays, and an integrated casting foundry.",
+          "primaryCtaText": "Download Corporate Profile",
+          "primaryCtaLink": "/contact",
+          "secondaryCtaText": "Inspect Workshop Fleet",
+          "secondaryCtaLink": "/workshop",
+          "featuredImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "House of Engineers Lahore Facility",
+          "alignment": "left"
+        },
+        "styling": {
+          "paddingTop": "xl",
+          "paddingBottom": "xl",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-about-stats",
+        "type": "stats",
+        "order": 1,
+        "content": {
+          "items": [
+            {
+              "label": "Annual Tonnage Output",
+              "value": "3,500+",
+              "change": "Tons Formed Steel",
+              "icon": "award"
+            },
+            {
+              "label": "Solar Structural Capacity",
+              "value": "50+",
+              "change": "Megawatts Deployed",
+              "icon": "zap"
+            },
+            {
+              "label": "Press Fleet Load",
+              "value": "150",
+              "change": "Tons Stamping Fleet",
+              "icon": "factory"
+            },
+            {
+              "label": "Turnaround Benchmark",
+              "value": "99.2%",
+              "change": "On-Time Dispatch",
+              "icon": "users"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#0f172a",
+          "textColor": "#ffffff",
+          "containerWidth": "boxed"
+        }
+      },
+      {
+        "id": "blk-about-grid",
+        "type": "columnsGrid",
+        "order": 2,
+        "content": {
+          "columns": 3,
+          "heading": "Our Engineering Philosophy & Pillars",
+          "subheading": "Strict adherence to global engineering standards ensures high structural reliability across all project categories.",
+          "items": [
+            {
+              "title": "Rigorous Metallurgy & Material Traceability",
+              "description": "All mild steel, tool steel, and aluminum ingots come with mill test certificates (MTC) verifying tensile strength and chemical composition.",
+              "badge": "ASTM & EN Standards",
+              "linkUrl": "/quality-standards",
+              "linkText": "Inspect Testing Regimes"
+            },
+            {
+              "title": "In-House Tool & Die Development",
+              "description": "Our toolmakers develop progressive stamping dies, deep draw fixtures, and precision punch tooling directly from CAD models.",
+              "badge": "Micron Accuracy",
+              "linkUrl": "/services",
+              "linkText": "Tooling Capabilities"
+            },
+            {
+              "title": "Turnkey Field Installation Teams",
+              "description": "Certified rigging, mobile cranes, and certified welders deployed on-site across Lahore, Faisalabad, Sialkot, and Rawalpindi.",
+              "badge": "Turnkey Execution",
+              "linkUrl": "/contact",
+              "linkText": "Request Engineering Team"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#020617",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-about-cta",
+        "type": "cta",
+        "order": 3,
+        "content": {
+          "badge": "B2B Procurement & Consultation",
+          "headline": "Consult with Our Chief Structural Engineers",
+          "subheadline": "Schedule a facility walkthrough or review technical drawings at our Lahore workshop.",
+          "primaryText": "Schedule Workshop Visit",
+          "primaryLink": "/contact",
+          "secondaryText": "Request Project Quotation",
+          "secondaryLink": "/quote",
+          "alignment": "center"
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "boxed"
+        }
+      }
+    ],
+    "revisions": [
+      {
+        "id": "rev-1790029753572-page-about",
+        "timestamp": "2026-09-21T22:29:13.572Z",
+        "savedBy": "admin@houseofengineers.pk",
+        "summary": "Seeded initial production block layout",
+        "blocks": [
+          {
+            "id": "blk-about-hero",
+            "type": "hero",
+            "order": 0,
+            "content": {
+              "badge": "ENGINEERING CREDENTIALS • ESTABLISHED FACILITY",
+              "heading": "Decades of Precision Industrial Manufacturing & Metal Fabrication",
+              "highlightWord": "Manufacturing",
+              "subheading": "Headquartered in Lahore, House of Engineers Pvt. Ltd. operates dedicated mechanical power presses, industrial lathe bays, AWS-certified welding bays, and an integrated casting foundry.",
+              "primaryCtaText": "Download Corporate Profile",
+              "primaryCtaLink": "/contact",
+              "secondaryCtaText": "Inspect Workshop Fleet",
+              "secondaryCtaLink": "/workshop",
+              "featuredImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+              "featuredImageAlt": "House of Engineers Lahore Facility",
+              "alignment": "left"
+            },
+            "styling": {
+              "paddingTop": "xl",
+              "paddingBottom": "xl",
+              "backgroundColor": "#0B1325",
+              "textColor": "#ffffff",
+              "containerWidth": "wide"
+            }
+          },
+          {
+            "id": "blk-about-stats",
+            "type": "stats",
+            "order": 1,
+            "content": {
+              "items": [
+                {
+                  "label": "Annual Tonnage Output",
+                  "value": "3,500+",
+                  "change": "Tons Formed Steel",
+                  "icon": "award"
+                },
+                {
+                  "label": "Solar Structural Capacity",
+                  "value": "50+",
+                  "change": "Megawatts Deployed",
+                  "icon": "zap"
+                },
+                {
+                  "label": "Press Fleet Load",
+                  "value": "150",
+                  "change": "Tons Stamping Fleet",
+                  "icon": "factory"
+                },
+                {
+                  "label": "Turnaround Benchmark",
+                  "value": "99.2%",
+                  "change": "On-Time Dispatch",
+                  "icon": "users"
+                }
+              ]
+            },
+            "styling": {
+              "paddingTop": "lg",
+              "paddingBottom": "lg",
+              "backgroundColor": "#0f172a",
+              "textColor": "#ffffff",
+              "containerWidth": "boxed"
+            }
+          },
+          {
+            "id": "blk-about-grid",
+            "type": "columnsGrid",
+            "order": 2,
+            "content": {
+              "columns": 3,
+              "heading": "Our Engineering Philosophy & Pillars",
+              "subheading": "Strict adherence to global engineering standards ensures high structural reliability across all project categories.",
+              "items": [
+                {
+                  "title": "Rigorous Metallurgy & Material Traceability",
+                  "description": "All mild steel, tool steel, and aluminum ingots come with mill test certificates (MTC) verifying tensile strength and chemical composition.",
+                  "badge": "ASTM & EN Standards",
+                  "linkUrl": "/quality-standards",
+                  "linkText": "Inspect Testing Regimes"
+                },
+                {
+                  "title": "In-House Tool & Die Development",
+                  "description": "Our toolmakers develop progressive stamping dies, deep draw fixtures, and precision punch tooling directly from CAD models.",
+                  "badge": "Micron Accuracy",
+                  "linkUrl": "/services",
+                  "linkText": "Tooling Capabilities"
+                },
+                {
+                  "title": "Turnkey Field Installation Teams",
+                  "description": "Certified rigging, mobile cranes, and certified welders deployed on-site across Lahore, Faisalabad, Sialkot, and Rawalpindi.",
+                  "badge": "Turnkey Execution",
+                  "linkUrl": "/contact",
+                  "linkText": "Request Engineering Team"
+                }
+              ]
+            },
+            "styling": {
+              "paddingTop": "lg",
+              "paddingBottom": "lg",
+              "backgroundColor": "#020617",
+              "textColor": "#ffffff",
+              "containerWidth": "wide"
+            }
+          },
+          {
+            "id": "blk-about-cta",
+            "type": "cta",
+            "order": 3,
+            "content": {
+              "badge": "B2B Procurement & Consultation",
+              "headline": "Consult with Our Chief Structural Engineers",
+              "subheadline": "Schedule a facility walkthrough or review technical drawings at our Lahore workshop.",
+              "primaryText": "Schedule Workshop Visit",
+              "primaryLink": "/contact",
+              "secondaryText": "Request Project Quotation",
+              "secondaryLink": "/quote",
+              "alignment": "center"
+            },
+            "styling": {
+              "paddingTop": "lg",
+              "paddingBottom": "lg",
+              "backgroundColor": "#0B1325",
+              "textColor": "#ffffff",
+              "containerWidth": "boxed"
+            }
+          }
+        ]
+      }
+    ],
+    "updatedAt": "2026-09-21T22:29:13.572Z",
+    "publishedAt": "2026-09-21T22:29:13.572Z"
+  },
+  {
+    "id": "page-services",
+    "slug": "/services",
+    "title": "Engineering Services & Capabilities",
+    "status": "published",
+    "seo": {
+      "metaTitle": "Industrial Engineering Services | House of Engineers Pvt. Ltd.",
+      "metaDescription": "Certified solar mount structures, precision lathe machining, AWS certified welding, and custom metal stamping services in Pakistan.",
+      "keywords": [
+        "engineering services lahore",
+        "custom metal fabrication",
+        "lathe turning punjab"
+      ],
+      "ogImage": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80"
+    },
+    "blocks": [
+      {
+        "id": "blk-services-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "CERTIFIED CAPABILITIES • FULL-SCOPE FABRICATION",
+          "heading": "Turnkey Industrial Metal Fabrication & Machining Solutions",
+          "highlightWord": "Machining",
+          "subheading": "From high-wind certified solar mounting canopies to high-precision machine rollers and bespoke foundry castings.",
+          "primaryCtaText": "Request RFQ Estimate",
+          "primaryCtaLink": "/quote",
+          "secondaryCtaText": "Browse Case Studies",
+          "secondaryCtaLink": "/portfolio",
+          "featuredImage": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "Industrial Engineering Capabilities",
+          "alignment": "left"
+        },
+        "styling": {
+          "paddingTop": "xl",
+          "paddingBottom": "xl",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-services-grid",
+        "type": "columnsGrid",
+        "order": 1,
+        "content": {
+          "columns": 3,
+          "heading": "Core Engineering Disciplines",
+          "subheading": "Manufactured to international tolerances and backed by certified quality assurance.",
+          "items": [
+            {
+              "title": "Solar Mounting Frameworks",
+              "description": "ASTM A123 hot-dip galvanized C-channels, elevated rooftop canopies, and ground-mount arrays rated for 145 km/h winds.",
+              "badge": "145 km/h Certified",
+              "linkUrl": "/services/solar-mounting",
+              "linkText": "Solar Framework Specs"
+            },
+            {
+              "title": "Precision Lathe & Tooling Works",
+              "description": "Cylindrical turning up to Ø600mm x 2500mm, progressive punch dies, drive shafts, and high-tolerance industrial rollers.",
+              "badge": "±0.01mm Tolerance",
+              "linkUrl": "/services/precision-machining",
+              "linkText": "Machining Specs"
+            },
+            {
+              "title": "Heavy Structural Fabrication",
+              "description": "Pre-engineered steel building trusses, cantilever parking canopies, overhead crane gantries, and industrial access stairs.",
+              "badge": "AWS D1.1 Certified",
+              "linkUrl": "/services/structural-fabrication",
+              "linkText": "Structural Steel Specs"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#020617",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-services-cta",
+        "type": "cta",
+        "order": 2,
+        "content": {
+          "badge": "Itemized Estimating",
+          "headline": "Have Bill of Materials (BOM) or CAD Drawings?",
+          "subheadline": "Our estimating engineers provide comprehensive itemized bids with raw material breakdowns within 24 hours.",
+          "primaryText": "Upload Drawings for Quote",
+          "primaryLink": "/quote",
+          "secondaryText": "Contact Engineering Desk",
+          "secondaryLink": "/contact",
+          "alignment": "center"
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "boxed"
+        }
+      }
+    ],
+    "publishedBlocks": [
+      {
+        "id": "blk-services-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "CERTIFIED CAPABILITIES • FULL-SCOPE FABRICATION",
+          "heading": "Turnkey Industrial Metal Fabrication & Machining Solutions",
+          "highlightWord": "Machining",
+          "subheading": "From high-wind certified solar mounting canopies to high-precision machine rollers and bespoke foundry castings.",
+          "primaryCtaText": "Request RFQ Estimate",
+          "primaryCtaLink": "/quote",
+          "secondaryCtaText": "Browse Case Studies",
+          "secondaryCtaLink": "/portfolio",
+          "featuredImage": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "Industrial Engineering Capabilities",
+          "alignment": "left"
+        },
+        "styling": {
+          "paddingTop": "xl",
+          "paddingBottom": "xl",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-services-grid",
+        "type": "columnsGrid",
+        "order": 1,
+        "content": {
+          "columns": 3,
+          "heading": "Core Engineering Disciplines",
+          "subheading": "Manufactured to international tolerances and backed by certified quality assurance.",
+          "items": [
+            {
+              "title": "Solar Mounting Frameworks",
+              "description": "ASTM A123 hot-dip galvanized C-channels, elevated rooftop canopies, and ground-mount arrays rated for 145 km/h winds.",
+              "badge": "145 km/h Certified",
+              "linkUrl": "/services/solar-mounting",
+              "linkText": "Solar Framework Specs"
+            },
+            {
+              "title": "Precision Lathe & Tooling Works",
+              "description": "Cylindrical turning up to Ø600mm x 2500mm, progressive punch dies, drive shafts, and high-tolerance industrial rollers.",
+              "badge": "±0.01mm Tolerance",
+              "linkUrl": "/services/precision-machining",
+              "linkText": "Machining Specs"
+            },
+            {
+              "title": "Heavy Structural Fabrication",
+              "description": "Pre-engineered steel building trusses, cantilever parking canopies, overhead crane gantries, and industrial access stairs.",
+              "badge": "AWS D1.1 Certified",
+              "linkUrl": "/services/structural-fabrication",
+              "linkText": "Structural Steel Specs"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#020617",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-services-cta",
+        "type": "cta",
+        "order": 2,
+        "content": {
+          "badge": "Itemized Estimating",
+          "headline": "Have Bill of Materials (BOM) or CAD Drawings?",
+          "subheadline": "Our estimating engineers provide comprehensive itemized bids with raw material breakdowns within 24 hours.",
+          "primaryText": "Upload Drawings for Quote",
+          "primaryLink": "/quote",
+          "secondaryText": "Contact Engineering Desk",
+          "secondaryLink": "/contact",
+          "alignment": "center"
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "boxed"
+        }
+      }
+    ],
+    "revisions": [
+      {
+        "id": "rev-1790029753572-page-services",
+        "timestamp": "2026-09-21T22:29:13.572Z",
+        "savedBy": "admin@houseofengineers.pk",
+        "summary": "Seeded initial production block layout",
+        "blocks": [
+          {
+            "id": "blk-services-hero",
+            "type": "hero",
+            "order": 0,
+            "content": {
+              "badge": "CERTIFIED CAPABILITIES • FULL-SCOPE FABRICATION",
+              "heading": "Turnkey Industrial Metal Fabrication & Machining Solutions",
+              "highlightWord": "Machining",
+              "subheading": "From high-wind certified solar mounting canopies to high-precision machine rollers and bespoke foundry castings.",
+              "primaryCtaText": "Request RFQ Estimate",
+              "primaryCtaLink": "/quote",
+              "secondaryCtaText": "Browse Case Studies",
+              "secondaryCtaLink": "/portfolio",
+              "featuredImage": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80",
+              "featuredImageAlt": "Industrial Engineering Capabilities",
+              "alignment": "left"
+            },
+            "styling": {
+              "paddingTop": "xl",
+              "paddingBottom": "xl",
+              "backgroundColor": "#0B1325",
+              "textColor": "#ffffff",
+              "containerWidth": "wide"
+            }
+          },
+          {
+            "id": "blk-services-grid",
+            "type": "columnsGrid",
+            "order": 1,
+            "content": {
+              "columns": 3,
+              "heading": "Core Engineering Disciplines",
+              "subheading": "Manufactured to international tolerances and backed by certified quality assurance.",
+              "items": [
+                {
+                  "title": "Solar Mounting Frameworks",
+                  "description": "ASTM A123 hot-dip galvanized C-channels, elevated rooftop canopies, and ground-mount arrays rated for 145 km/h winds.",
+                  "badge": "145 km/h Certified",
+                  "linkUrl": "/services/solar-mounting",
+                  "linkText": "Solar Framework Specs"
+                },
+                {
+                  "title": "Precision Lathe & Tooling Works",
+                  "description": "Cylindrical turning up to Ø600mm x 2500mm, progressive punch dies, drive shafts, and high-tolerance industrial rollers.",
+                  "badge": "±0.01mm Tolerance",
+                  "linkUrl": "/services/precision-machining",
+                  "linkText": "Machining Specs"
+                },
+                {
+                  "title": "Heavy Structural Fabrication",
+                  "description": "Pre-engineered steel building trusses, cantilever parking canopies, overhead crane gantries, and industrial access stairs.",
+                  "badge": "AWS D1.1 Certified",
+                  "linkUrl": "/services/structural-fabrication",
+                  "linkText": "Structural Steel Specs"
+                }
+              ]
+            },
+            "styling": {
+              "paddingTop": "lg",
+              "paddingBottom": "lg",
+              "backgroundColor": "#020617",
+              "textColor": "#ffffff",
+              "containerWidth": "wide"
+            }
+          },
+          {
+            "id": "blk-services-cta",
+            "type": "cta",
+            "order": 2,
+            "content": {
+              "badge": "Itemized Estimating",
+              "headline": "Have Bill of Materials (BOM) or CAD Drawings?",
+              "subheadline": "Our estimating engineers provide comprehensive itemized bids with raw material breakdowns within 24 hours.",
+              "primaryText": "Upload Drawings for Quote",
+              "primaryLink": "/quote",
+              "secondaryText": "Contact Engineering Desk",
+              "secondaryLink": "/contact",
+              "alignment": "center"
+            },
+            "styling": {
+              "paddingTop": "lg",
+              "paddingBottom": "lg",
+              "backgroundColor": "#0B1325",
+              "textColor": "#ffffff",
+              "containerWidth": "boxed"
+            }
+          }
+        ]
+      }
+    ],
+    "updatedAt": "2026-09-21T22:29:13.572Z",
+    "publishedAt": "2026-09-21T22:29:13.572Z"
+  },
+  {
+    "id": "page-portfolio",
+    "slug": "/portfolio",
+    "title": "Industrial Portfolio & Case Studies",
+    "status": "published",
+    "seo": {
+      "metaTitle": "Engineering Case Studies & Portfolio | House of Engineers",
+      "metaDescription": "Explore landmark industrial steel fabrication, solar rooftop canopy installations, and precision machining projects across Pakistan.",
+      "keywords": [
+        "engineering portfolio pakistan",
+        "solar canopy case studies",
+        "lahore fabrication projects"
+      ],
+      "ogImage": "https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1200&q=80"
+    },
+    "blocks": [
+      {
+        "id": "blk-portfolio-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "TRACK RECORD • PROVEN EXECUTION",
+          "heading": "Engineered Infrastructure Across Industrial Pakistan",
+          "highlightWord": "Infrastructure",
+          "subheading": "From commercial megawatt solar arrays in Faisalabad to heavy structural canopies in Lahore and precision machine replacement parts.",
+          "primaryCtaText": "Start Your Project",
+          "primaryCtaLink": "/quote",
+          "secondaryCtaText": "Contact Engineers",
+          "secondaryCtaLink": "/contact",
+          "featuredImage": "https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "House of Engineers Case Studies",
+          "alignment": "left"
+        },
+        "styling": {
+          "paddingTop": "xl",
+          "paddingBottom": "xl",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-portfolio-stats",
+        "type": "stats",
+        "order": 1,
+        "content": {
+          "items": [
+            {
+              "label": "Completed Projects",
+              "value": "450+",
+              "change": "Turnkey Deployments",
+              "icon": "award"
+            },
+            {
+              "label": "Commercial Rooftops",
+              "value": "120+",
+              "change": "Solar Canopies",
+              "icon": "zap"
+            },
+            {
+              "label": "Districts Served",
+              "value": "18+",
+              "change": "Across Punjab & KPK",
+              "icon": "users"
+            },
+            {
+              "label": "Structural Warranty",
+              "value": "25",
+              "change": "Years Warranty",
+              "icon": "factory"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#0f172a",
+          "textColor": "#ffffff",
+          "containerWidth": "boxed"
+        }
+      }
+    ],
+    "publishedBlocks": [
+      {
+        "id": "blk-portfolio-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "TRACK RECORD • PROVEN EXECUTION",
+          "heading": "Engineered Infrastructure Across Industrial Pakistan",
+          "highlightWord": "Infrastructure",
+          "subheading": "From commercial megawatt solar arrays in Faisalabad to heavy structural canopies in Lahore and precision machine replacement parts.",
+          "primaryCtaText": "Start Your Project",
+          "primaryCtaLink": "/quote",
+          "secondaryCtaText": "Contact Engineers",
+          "secondaryCtaLink": "/contact",
+          "featuredImage": "https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "House of Engineers Case Studies",
+          "alignment": "left"
+        },
+        "styling": {
+          "paddingTop": "xl",
+          "paddingBottom": "xl",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-portfolio-stats",
+        "type": "stats",
+        "order": 1,
+        "content": {
+          "items": [
+            {
+              "label": "Completed Projects",
+              "value": "450+",
+              "change": "Turnkey Deployments",
+              "icon": "award"
+            },
+            {
+              "label": "Commercial Rooftops",
+              "value": "120+",
+              "change": "Solar Canopies",
+              "icon": "zap"
+            },
+            {
+              "label": "Districts Served",
+              "value": "18+",
+              "change": "Across Punjab & KPK",
+              "icon": "users"
+            },
+            {
+              "label": "Structural Warranty",
+              "value": "25",
+              "change": "Years Warranty",
+              "icon": "factory"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#0f172a",
+          "textColor": "#ffffff",
+          "containerWidth": "boxed"
+        }
+      }
+    ],
+    "revisions": [
+      {
+        "id": "rev-1790029753572-page-portfolio",
+        "timestamp": "2026-09-21T22:29:13.572Z",
+        "savedBy": "admin@houseofengineers.pk",
+        "summary": "Seeded initial production block layout",
+        "blocks": [
+          {
+            "id": "blk-portfolio-hero",
+            "type": "hero",
+            "order": 0,
+            "content": {
+              "badge": "TRACK RECORD • PROVEN EXECUTION",
+              "heading": "Engineered Infrastructure Across Industrial Pakistan",
+              "highlightWord": "Infrastructure",
+              "subheading": "From commercial megawatt solar arrays in Faisalabad to heavy structural canopies in Lahore and precision machine replacement parts.",
+              "primaryCtaText": "Start Your Project",
+              "primaryCtaLink": "/quote",
+              "secondaryCtaText": "Contact Engineers",
+              "secondaryCtaLink": "/contact",
+              "featuredImage": "https://images.unsplash.com/photo-1541888946425-d0fbb186156a?auto=format&fit=crop&w=1200&q=80",
+              "featuredImageAlt": "House of Engineers Case Studies",
+              "alignment": "left"
+            },
+            "styling": {
+              "paddingTop": "xl",
+              "paddingBottom": "xl",
+              "backgroundColor": "#0B1325",
+              "textColor": "#ffffff",
+              "containerWidth": "wide"
+            }
+          },
+          {
+            "id": "blk-portfolio-stats",
+            "type": "stats",
+            "order": 1,
+            "content": {
+              "items": [
+                {
+                  "label": "Completed Projects",
+                  "value": "450+",
+                  "change": "Turnkey Deployments",
+                  "icon": "award"
+                },
+                {
+                  "label": "Commercial Rooftops",
+                  "value": "120+",
+                  "change": "Solar Canopies",
+                  "icon": "zap"
+                },
+                {
+                  "label": "Districts Served",
+                  "value": "18+",
+                  "change": "Across Punjab & KPK",
+                  "icon": "users"
+                },
+                {
+                  "label": "Structural Warranty",
+                  "value": "25",
+                  "change": "Years Warranty",
+                  "icon": "factory"
+                }
+              ]
+            },
+            "styling": {
+              "paddingTop": "lg",
+              "paddingBottom": "lg",
+              "backgroundColor": "#0f172a",
+              "textColor": "#ffffff",
+              "containerWidth": "boxed"
+            }
+          }
+        ]
+      }
+    ],
+    "updatedAt": "2026-09-21T22:29:13.572Z",
+    "publishedAt": "2026-09-21T22:29:13.572Z"
+  },
+  {
+    "id": "page-workshop",
+    "slug": "/workshop",
+    "title": "Workshop & Machinery Fleet",
+    "status": "published",
+    "seo": {
+      "metaTitle": "Machinery Fleet & Industrial Workshop | House of Engineers",
+      "metaDescription": "Mechanical power presses up to 150T, geared lathe centers, certified argon TIG/MIG bays, and integrated aluminum foundry in Lahore.",
+      "keywords": [
+        "machinery fleet lahore",
+        "power press fleet",
+        "welding bays punjab"
+      ],
+      "ogImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80"
+    },
+    "blocks": [
+      {
+        "id": "blk-workshop-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "PRODUCTION FACILITY • LAHORE INDUSTRIAL HUB",
+          "heading": "Heavy Machinery Fleet & High-Capacity Tooling Bays",
+          "highlightWord": "Machinery",
+          "subheading": "Our Lahore works feature 20T to 150T eccentric stamping presses, DRO lathe centers, certified argon welding rigs, and green sand casting bays.",
+          "primaryCtaText": "Schedule Workshop Inspection",
+          "primaryCtaLink": "/contact",
+          "secondaryCtaText": "Submit Technical BOM",
+          "secondaryCtaLink": "/quote",
+          "featuredImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "Machinery Fleet",
+          "alignment": "left"
+        },
+        "styling": {
+          "paddingTop": "xl",
+          "paddingBottom": "xl",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-workshop-specs",
+        "type": "specsTable",
+        "order": 1,
+        "content": {
+          "heading": "Key Machine Specifications & Capacities",
+          "subheading": "Calibrated instrumentation and machinery ready for high-volume contract manufacturing.",
+          "rows": [
+            {
+              "parameter": "Mechanical Press Fleet",
+              "specification": "20-Ton to 150-Ton pneumatic clutch presses",
+              "tolerance": "Up to 120 SPM"
+            },
+            {
+              "parameter": "Geared Industrial Lathe Centers",
+              "specification": "Max turning Ø600mm x 2500mm length with 3-axis DRO",
+              "tolerance": "±0.01mm Concentricity"
+            },
+            {
+              "parameter": "Welding Bays",
+              "specification": "AWS D1.1 certified high-frequency Argon TIG & 400A MIG/MAG rigs",
+              "tolerance": "Full Penetration"
+            },
+            {
+              "parameter": "Foundry & Aluminum Bay",
+              "specification": "A356 and LM6 foundry melts with sand & gravity die molding",
+              "tolerance": "Pore-Free Density"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#020617",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      }
+    ],
+    "publishedBlocks": [
+      {
+        "id": "blk-workshop-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "PRODUCTION FACILITY • LAHORE INDUSTRIAL HUB",
+          "heading": "Heavy Machinery Fleet & High-Capacity Tooling Bays",
+          "highlightWord": "Machinery",
+          "subheading": "Our Lahore works feature 20T to 150T eccentric stamping presses, DRO lathe centers, certified argon welding rigs, and green sand casting bays.",
+          "primaryCtaText": "Schedule Workshop Inspection",
+          "primaryCtaLink": "/contact",
+          "secondaryCtaText": "Submit Technical BOM",
+          "secondaryCtaLink": "/quote",
+          "featuredImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "Machinery Fleet",
+          "alignment": "left"
+        },
+        "styling": {
+          "paddingTop": "xl",
+          "paddingBottom": "xl",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-workshop-specs",
+        "type": "specsTable",
+        "order": 1,
+        "content": {
+          "heading": "Key Machine Specifications & Capacities",
+          "subheading": "Calibrated instrumentation and machinery ready for high-volume contract manufacturing.",
+          "rows": [
+            {
+              "parameter": "Mechanical Press Fleet",
+              "specification": "20-Ton to 150-Ton pneumatic clutch presses",
+              "tolerance": "Up to 120 SPM"
+            },
+            {
+              "parameter": "Geared Industrial Lathe Centers",
+              "specification": "Max turning Ø600mm x 2500mm length with 3-axis DRO",
+              "tolerance": "±0.01mm Concentricity"
+            },
+            {
+              "parameter": "Welding Bays",
+              "specification": "AWS D1.1 certified high-frequency Argon TIG & 400A MIG/MAG rigs",
+              "tolerance": "Full Penetration"
+            },
+            {
+              "parameter": "Foundry & Aluminum Bay",
+              "specification": "A356 and LM6 foundry melts with sand & gravity die molding",
+              "tolerance": "Pore-Free Density"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#020617",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      }
+    ],
+    "revisions": [
+      {
+        "id": "rev-1790029753572-page-workshop",
+        "timestamp": "2026-09-21T22:29:13.572Z",
+        "savedBy": "admin@houseofengineers.pk",
+        "summary": "Seeded initial production block layout",
+        "blocks": [
+          {
+            "id": "blk-workshop-hero",
+            "type": "hero",
+            "order": 0,
+            "content": {
+              "badge": "PRODUCTION FACILITY • LAHORE INDUSTRIAL HUB",
+              "heading": "Heavy Machinery Fleet & High-Capacity Tooling Bays",
+              "highlightWord": "Machinery",
+              "subheading": "Our Lahore works feature 20T to 150T eccentric stamping presses, DRO lathe centers, certified argon welding rigs, and green sand casting bays.",
+              "primaryCtaText": "Schedule Workshop Inspection",
+              "primaryCtaLink": "/contact",
+              "secondaryCtaText": "Submit Technical BOM",
+              "secondaryCtaLink": "/quote",
+              "featuredImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+              "featuredImageAlt": "Machinery Fleet",
+              "alignment": "left"
+            },
+            "styling": {
+              "paddingTop": "xl",
+              "paddingBottom": "xl",
+              "backgroundColor": "#0B1325",
+              "textColor": "#ffffff",
+              "containerWidth": "wide"
+            }
+          },
+          {
+            "id": "blk-workshop-specs",
+            "type": "specsTable",
+            "order": 1,
+            "content": {
+              "heading": "Key Machine Specifications & Capacities",
+              "subheading": "Calibrated instrumentation and machinery ready for high-volume contract manufacturing.",
+              "rows": [
+                {
+                  "parameter": "Mechanical Press Fleet",
+                  "specification": "20-Ton to 150-Ton pneumatic clutch presses",
+                  "tolerance": "Up to 120 SPM"
+                },
+                {
+                  "parameter": "Geared Industrial Lathe Centers",
+                  "specification": "Max turning Ø600mm x 2500mm length with 3-axis DRO",
+                  "tolerance": "±0.01mm Concentricity"
+                },
+                {
+                  "parameter": "Welding Bays",
+                  "specification": "AWS D1.1 certified high-frequency Argon TIG & 400A MIG/MAG rigs",
+                  "tolerance": "Full Penetration"
+                },
+                {
+                  "parameter": "Foundry & Aluminum Bay",
+                  "specification": "A356 and LM6 foundry melts with sand & gravity die molding",
+                  "tolerance": "Pore-Free Density"
+                }
+              ]
+            },
+            "styling": {
+              "paddingTop": "lg",
+              "paddingBottom": "lg",
+              "backgroundColor": "#020617",
+              "textColor": "#ffffff",
+              "containerWidth": "wide"
+            }
+          }
+        ]
+      }
+    ],
+    "updatedAt": "2026-09-21T22:29:13.572Z",
+    "publishedAt": "2026-09-21T22:29:13.572Z"
+  },
+  {
+    "id": "page-quality",
+    "slug": "/quality-standards",
+    "title": "Quality Standards & Certifications",
+    "status": "published",
+    "seo": {
+      "metaTitle": "Quality Standards & Testing Regimes | House of Engineers",
+      "metaDescription": "ASTM A123 galvanizing verification, weld ultrasonic inspections, and mill test traceability at House of Engineers Pvt. Ltd.",
+      "keywords": [
+        "quality engineering standards",
+        "astm a123 testing",
+        "aws d1.1 inspection"
+      ],
+      "ogImage": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80"
+    },
+    "blocks": [
+      {
+        "id": "blk-quality-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "CERTIFIED ASSURANCE • METALLURGICAL RIGOR",
+          "heading": "Quality Engineering Standards & Testing Regimes",
+          "highlightWord": "Standards",
+          "subheading": "Every ton of fabricated steel undergoes multi-stage non-destructive testing, zinc coating thickness verification, and weld penetration audits.",
+          "primaryCtaText": "Request Quality Dossier",
+          "primaryCtaLink": "/contact",
+          "secondaryCtaText": "Launch Quotation",
+          "secondaryCtaLink": "/quote",
+          "featuredImage": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "Quality Inspection",
+          "alignment": "left"
+        },
+        "styling": {
+          "paddingTop": "xl",
+          "paddingBottom": "xl",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-quality-specs",
+        "type": "specsTable",
+        "order": 1,
+        "content": {
+          "heading": "Compliance Matrix & Certified Codes",
+          "subheading": "Mandatory quality protocols executed on every industrial batch.",
+          "rows": [
+            {
+              "parameter": "Structural Steel Galvanization",
+              "specification": "ASTM A123 / A123M Hot-Dip Zinc Coating",
+              "tolerance": "Min 85 microns"
+            },
+            {
+              "parameter": "Structural Welding Compliance",
+              "specification": "AWS D1.1 / D1.1M Structural Welding Code - Steel",
+              "tolerance": "100% Visual + NDT"
+            },
+            {
+              "parameter": "Wind Load Engineering Rating",
+              "specification": "ASCE 7-10 Wind Velocity & Exposure Category C",
+              "tolerance": "145 km/h Gusts"
+            },
+            {
+              "parameter": "Raw Material Testing",
+              "specification": "Mill Test Certificate (MTC) verification for EN8/Q235B",
+              "tolerance": "100% Traceability"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#020617",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      }
+    ],
+    "publishedBlocks": [
+      {
+        "id": "blk-quality-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "CERTIFIED ASSURANCE • METALLURGICAL RIGOR",
+          "heading": "Quality Engineering Standards & Testing Regimes",
+          "highlightWord": "Standards",
+          "subheading": "Every ton of fabricated steel undergoes multi-stage non-destructive testing, zinc coating thickness verification, and weld penetration audits.",
+          "primaryCtaText": "Request Quality Dossier",
+          "primaryCtaLink": "/contact",
+          "secondaryCtaText": "Launch Quotation",
+          "secondaryCtaLink": "/quote",
+          "featuredImage": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "Quality Inspection",
+          "alignment": "left"
+        },
+        "styling": {
+          "paddingTop": "xl",
+          "paddingBottom": "xl",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-quality-specs",
+        "type": "specsTable",
+        "order": 1,
+        "content": {
+          "heading": "Compliance Matrix & Certified Codes",
+          "subheading": "Mandatory quality protocols executed on every industrial batch.",
+          "rows": [
+            {
+              "parameter": "Structural Steel Galvanization",
+              "specification": "ASTM A123 / A123M Hot-Dip Zinc Coating",
+              "tolerance": "Min 85 microns"
+            },
+            {
+              "parameter": "Structural Welding Compliance",
+              "specification": "AWS D1.1 / D1.1M Structural Welding Code - Steel",
+              "tolerance": "100% Visual + NDT"
+            },
+            {
+              "parameter": "Wind Load Engineering Rating",
+              "specification": "ASCE 7-10 Wind Velocity & Exposure Category C",
+              "tolerance": "145 km/h Gusts"
+            },
+            {
+              "parameter": "Raw Material Testing",
+              "specification": "Mill Test Certificate (MTC) verification for EN8/Q235B",
+              "tolerance": "100% Traceability"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#020617",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      }
+    ],
+    "revisions": [
+      {
+        "id": "rev-1790029753572-page-quality",
+        "timestamp": "2026-09-21T22:29:13.572Z",
+        "savedBy": "admin@houseofengineers.pk",
+        "summary": "Seeded initial production block layout",
+        "blocks": [
+          {
+            "id": "blk-quality-hero",
+            "type": "hero",
+            "order": 0,
+            "content": {
+              "badge": "CERTIFIED ASSURANCE • METALLURGICAL RIGOR",
+              "heading": "Quality Engineering Standards & Testing Regimes",
+              "highlightWord": "Standards",
+              "subheading": "Every ton of fabricated steel undergoes multi-stage non-destructive testing, zinc coating thickness verification, and weld penetration audits.",
+              "primaryCtaText": "Request Quality Dossier",
+              "primaryCtaLink": "/contact",
+              "secondaryCtaText": "Launch Quotation",
+              "secondaryCtaLink": "/quote",
+              "featuredImage": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80",
+              "featuredImageAlt": "Quality Inspection",
+              "alignment": "left"
+            },
+            "styling": {
+              "paddingTop": "xl",
+              "paddingBottom": "xl",
+              "backgroundColor": "#0B1325",
+              "textColor": "#ffffff",
+              "containerWidth": "wide"
+            }
+          },
+          {
+            "id": "blk-quality-specs",
+            "type": "specsTable",
+            "order": 1,
+            "content": {
+              "heading": "Compliance Matrix & Certified Codes",
+              "subheading": "Mandatory quality protocols executed on every industrial batch.",
+              "rows": [
+                {
+                  "parameter": "Structural Steel Galvanization",
+                  "specification": "ASTM A123 / A123M Hot-Dip Zinc Coating",
+                  "tolerance": "Min 85 microns"
+                },
+                {
+                  "parameter": "Structural Welding Compliance",
+                  "specification": "AWS D1.1 / D1.1M Structural Welding Code - Steel",
+                  "tolerance": "100% Visual + NDT"
+                },
+                {
+                  "parameter": "Wind Load Engineering Rating",
+                  "specification": "ASCE 7-10 Wind Velocity & Exposure Category C",
+                  "tolerance": "145 km/h Gusts"
+                },
+                {
+                  "parameter": "Raw Material Testing",
+                  "specification": "Mill Test Certificate (MTC) verification for EN8/Q235B",
+                  "tolerance": "100% Traceability"
+                }
+              ]
+            },
+            "styling": {
+              "paddingTop": "lg",
+              "paddingBottom": "lg",
+              "backgroundColor": "#020617",
+              "textColor": "#ffffff",
+              "containerWidth": "wide"
+            }
+          }
+        ]
+      }
+    ],
+    "updatedAt": "2026-09-21T22:29:13.573Z",
+    "publishedAt": "2026-09-21T22:29:13.573Z"
+  },
+  {
+    "id": "page-quote",
+    "slug": "/quote",
+    "title": "Interactive Quote Estimator & RFQ",
+    "status": "published",
+    "seo": {
+      "metaTitle": "Request an Itemized Engineering Quote | House of Engineers",
+      "metaDescription": "Submit CAD drawings, solar structural parameters, or precision lathe specifications for an itemized quotation within 24 hours.",
+      "keywords": [
+        "request engineering quote",
+        "solar structure rfq",
+        "lathe quotation lahore"
+      ],
+      "ogImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80"
+    },
+    "blocks": [
+      {
+        "id": "blk-quote-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "ESTIMATING DESK • RAPID TURNAROUND",
+          "heading": "Instant Engineering Consultation & RFQ Estimator",
+          "highlightWord": "Estimator",
+          "subheading": "Get itemized material breakdowns, galvanizing lead times, and structural pricing customized to your project specs.",
+          "primaryCtaText": "Contact Estimator Direct",
+          "primaryCtaLink": "/contact",
+          "secondaryCtaText": "WhatsApp Desk",
+          "secondaryCtaLink": "https://wa.me/923214991253",
+          "featuredImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "Quote Estimator",
+          "alignment": "center"
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "boxed"
+        }
+      }
+    ],
+    "publishedBlocks": [
+      {
+        "id": "blk-quote-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "ESTIMATING DESK • RAPID TURNAROUND",
+          "heading": "Instant Engineering Consultation & RFQ Estimator",
+          "highlightWord": "Estimator",
+          "subheading": "Get itemized material breakdowns, galvanizing lead times, and structural pricing customized to your project specs.",
+          "primaryCtaText": "Contact Estimator Direct",
+          "primaryCtaLink": "/contact",
+          "secondaryCtaText": "WhatsApp Desk",
+          "secondaryCtaLink": "https://wa.me/923214991253",
+          "featuredImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "Quote Estimator",
+          "alignment": "center"
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "boxed"
+        }
+      }
+    ],
+    "revisions": [
+      {
+        "id": "rev-1790029753573-page-quote",
+        "timestamp": "2026-09-21T22:29:13.573Z",
+        "savedBy": "admin@houseofengineers.pk",
+        "summary": "Seeded initial production block layout",
+        "blocks": [
+          {
+            "id": "blk-quote-hero",
+            "type": "hero",
+            "order": 0,
+            "content": {
+              "badge": "ESTIMATING DESK • RAPID TURNAROUND",
+              "heading": "Instant Engineering Consultation & RFQ Estimator",
+              "highlightWord": "Estimator",
+              "subheading": "Get itemized material breakdowns, galvanizing lead times, and structural pricing customized to your project specs.",
+              "primaryCtaText": "Contact Estimator Direct",
+              "primaryCtaLink": "/contact",
+              "secondaryCtaText": "WhatsApp Desk",
+              "secondaryCtaLink": "https://wa.me/923214991253",
+              "featuredImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+              "featuredImageAlt": "Quote Estimator",
+              "alignment": "center"
+            },
+            "styling": {
+              "paddingTop": "lg",
+              "paddingBottom": "lg",
+              "backgroundColor": "#0B1325",
+              "textColor": "#ffffff",
+              "containerWidth": "boxed"
+            }
+          }
+        ]
+      }
+    ],
+    "updatedAt": "2026-09-21T22:29:13.573Z",
+    "publishedAt": "2026-09-21T22:29:13.573Z"
+  },
+  {
+    "id": "page-contact",
+    "slug": "/contact",
+    "title": "Contact & Technical Consultation",
+    "status": "published",
+    "seo": {
+      "metaTitle": "Contact House of Engineers Pvt. Ltd. | Lahore Works",
+      "metaDescription": "Connect directly with our estimating desk and structural engineering team in Industrial Sector, Lahore, Punjab.",
+      "keywords": [
+        "contact house of engineers",
+        "engineering desk lahore",
+        "lahore fabrication address"
+      ],
+      "ogImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80"
+    },
+    "blocks": [
+      {
+        "id": "blk-contact-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "HEAD OFFICE & INDUSTRIAL WORKS • LAHORE",
+          "heading": "Connect with Our Engineering Desk & Facility Team",
+          "highlightWord": "Engineering",
+          "subheading": "Reach our estimating desk, schedule an in-person facility inspection, or consult directly on high-wind structural designs.",
+          "primaryCtaText": "Launch WhatsApp Chat",
+          "primaryCtaLink": "https://wa.me/923214991253",
+          "secondaryCtaText": "Request RFQ",
+          "secondaryCtaLink": "/quote",
+          "featuredImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "Contact House of Engineers",
+          "alignment": "left"
+        },
+        "styling": {
+          "paddingTop": "xl",
+          "paddingBottom": "xl",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-contact-grid",
+        "type": "columnsGrid",
+        "order": 1,
+        "content": {
+          "columns": 3,
+          "heading": "Direct Department Channels",
+          "subheading": "Connect directly with the appropriate engineering lead for your project requirements.",
+          "items": [
+            {
+              "title": "Estimating & B2B Procurement",
+              "description": "Send AutoCAD drawings, Bills of Material (BOM), or project schedules for itemized bids within 24 hours.",
+              "badge": "+92 321 4991253",
+              "linkUrl": "mailto:procurement@houseofengineers.pk",
+              "linkText": "procurement@houseofengineers.pk"
+            },
+            {
+              "title": "Workshop Facility Visits",
+              "description": "Schedule an on-site walkthrough of our 150T press fleet, machining bays, and galvanizing quality line.",
+              "badge": "Lahore Industrial Works",
+              "linkUrl": "/workshop",
+              "linkText": "Workshop Directory"
+            },
+            {
+              "title": "Direct WhatsApp Engineering Desk",
+              "description": "Instant technical consultation with our on-duty structural engineers regarding material specs or turnaround times.",
+              "badge": "Live Mon - Sat",
+              "linkUrl": "https://wa.me/923214991253",
+              "linkText": "Start WhatsApp Chat"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#020617",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      }
+    ],
+    "publishedBlocks": [
+      {
+        "id": "blk-contact-hero",
+        "type": "hero",
+        "order": 0,
+        "content": {
+          "badge": "HEAD OFFICE & INDUSTRIAL WORKS • LAHORE",
+          "heading": "Connect with Our Engineering Desk & Facility Team",
+          "highlightWord": "Engineering",
+          "subheading": "Reach our estimating desk, schedule an in-person facility inspection, or consult directly on high-wind structural designs.",
+          "primaryCtaText": "Launch WhatsApp Chat",
+          "primaryCtaLink": "https://wa.me/923214991253",
+          "secondaryCtaText": "Request RFQ",
+          "secondaryCtaLink": "/quote",
+          "featuredImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+          "featuredImageAlt": "Contact House of Engineers",
+          "alignment": "left"
+        },
+        "styling": {
+          "paddingTop": "xl",
+          "paddingBottom": "xl",
+          "backgroundColor": "#0B1325",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      },
+      {
+        "id": "blk-contact-grid",
+        "type": "columnsGrid",
+        "order": 1,
+        "content": {
+          "columns": 3,
+          "heading": "Direct Department Channels",
+          "subheading": "Connect directly with the appropriate engineering lead for your project requirements.",
+          "items": [
+            {
+              "title": "Estimating & B2B Procurement",
+              "description": "Send AutoCAD drawings, Bills of Material (BOM), or project schedules for itemized bids within 24 hours.",
+              "badge": "+92 321 4991253",
+              "linkUrl": "mailto:procurement@houseofengineers.pk",
+              "linkText": "procurement@houseofengineers.pk"
+            },
+            {
+              "title": "Workshop Facility Visits",
+              "description": "Schedule an on-site walkthrough of our 150T press fleet, machining bays, and galvanizing quality line.",
+              "badge": "Lahore Industrial Works",
+              "linkUrl": "/workshop",
+              "linkText": "Workshop Directory"
+            },
+            {
+              "title": "Direct WhatsApp Engineering Desk",
+              "description": "Instant technical consultation with our on-duty structural engineers regarding material specs or turnaround times.",
+              "badge": "Live Mon - Sat",
+              "linkUrl": "https://wa.me/923214991253",
+              "linkText": "Start WhatsApp Chat"
+            }
+          ]
+        },
+        "styling": {
+          "paddingTop": "lg",
+          "paddingBottom": "lg",
+          "backgroundColor": "#020617",
+          "textColor": "#ffffff",
+          "containerWidth": "wide"
+        }
+      }
+    ],
+    "revisions": [
+      {
+        "id": "rev-1790029753573-page-contact",
+        "timestamp": "2026-09-21T22:29:13.573Z",
+        "savedBy": "admin@houseofengineers.pk",
+        "summary": "Seeded initial production block layout",
+        "blocks": [
+          {
+            "id": "blk-contact-hero",
+            "type": "hero",
+            "order": 0,
+            "content": {
+              "badge": "HEAD OFFICE & INDUSTRIAL WORKS • LAHORE",
+              "heading": "Connect with Our Engineering Desk & Facility Team",
+              "highlightWord": "Engineering",
+              "subheading": "Reach our estimating desk, schedule an in-person facility inspection, or consult directly on high-wind structural designs.",
+              "primaryCtaText": "Launch WhatsApp Chat",
+              "primaryCtaLink": "https://wa.me/923214991253",
+              "secondaryCtaText": "Request RFQ",
+              "secondaryCtaLink": "/quote",
+              "featuredImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+              "featuredImageAlt": "Contact House of Engineers",
+              "alignment": "left"
+            },
+            "styling": {
+              "paddingTop": "xl",
+              "paddingBottom": "xl",
+              "backgroundColor": "#0B1325",
+              "textColor": "#ffffff",
+              "containerWidth": "wide"
+            }
+          },
+          {
+            "id": "blk-contact-grid",
+            "type": "columnsGrid",
+            "order": 1,
+            "content": {
+              "columns": 3,
+              "heading": "Direct Department Channels",
+              "subheading": "Connect directly with the appropriate engineering lead for your project requirements.",
+              "items": [
+                {
+                  "title": "Estimating & B2B Procurement",
+                  "description": "Send AutoCAD drawings, Bills of Material (BOM), or project schedules for itemized bids within 24 hours.",
+                  "badge": "+92 321 4991253",
+                  "linkUrl": "mailto:procurement@houseofengineers.pk",
+                  "linkText": "procurement@houseofengineers.pk"
+                },
+                {
+                  "title": "Workshop Facility Visits",
+                  "description": "Schedule an on-site walkthrough of our 150T press fleet, machining bays, and galvanizing quality line.",
+                  "badge": "Lahore Industrial Works",
+                  "linkUrl": "/workshop",
+                  "linkText": "Workshop Directory"
+                },
+                {
+                  "title": "Direct WhatsApp Engineering Desk",
+                  "description": "Instant technical consultation with our on-duty structural engineers regarding material specs or turnaround times.",
+                  "badge": "Live Mon - Sat",
+                  "linkUrl": "https://wa.me/923214991253",
+                  "linkText": "Start WhatsApp Chat"
+                }
+              ]
+            },
+            "styling": {
+              "paddingTop": "lg",
+              "paddingBottom": "lg",
+              "backgroundColor": "#020617",
+              "textColor": "#ffffff",
+              "containerWidth": "wide"
+            }
+          }
+        ]
+      }
+    ],
+    "updatedAt": "2026-09-21T22:29:13.573Z",
+    "publishedAt": "2026-09-21T22:29:13.573Z"
   }
 ]
