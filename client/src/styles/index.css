@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-blue: #23588f;
+  --brand-blue-dark: #1a436e;
+  --brand-orange: #e48738;
+  --brand-orange-dark: #cc7227;
+  --brand-charcoal: #4b5156;
+  --brand-neutral: #f4f6f8;
+  --brand-white: #ffffff;
+  --brand-slate: #1e293b;
+  --brand-border: #e2e8f0;
+}
+
+/* Custom technical styling & geometric components */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-semibold text-white bg-brand-blue hover:bg-brand-blue-dark active:bg-[#153658] transition-colors duration-150 rounded-md px-5 py-2.5 text-sm tracking-wide shadow-sm disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center font-semibold text-white bg-brand-orange hover:bg-brand-orange-dark active:bg-[#b8631d] transition-colors duration-150 rounded-md px-5 py-2.5 text-sm tracking-wide shadow-sm disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center font-semibold text-brand-blue bg-white border border-brand-blue/30 hover:bg-brand-blue/5 active:bg-brand-blue/10 transition-colors duration-150 rounded-md px-5 py-2.5 text-sm tracking-wide;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center font-semibold text-white bg-transparent border border-white/40 hover:bg-white/10 active:bg-white/20 transition-colors duration-150 rounded-md px-5 py-2.5 text-sm tracking-wide;
+  }
+
+  .tech-card {
+    @apply bg-brand-white border border-brand-border rounded-lg p-6 shadow-technical transition-all duration-200 hover:shadow-technical-md hover:border-brand-blue/40;
+  }
+
+  .tech-card-sharp {
+    @apply bg-brand-white border border-brand-border rounded-md p-6 shadow-technical;
+  }
+
+  .badge-metric {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded bg-brand-blue/10 text-brand-blue border border-brand-blue/20;
+  }
+
+  .badge-spec {
+    @apply inline-flex items-center px-2 py-0.5 text-xs font-mono font-medium rounded bg-slate-100 text-slate-700 border border-slate-200;
+  }
+}
+
+/* Subtle Technical Grid Background for Industrial Engineering Feel */
+.tech-grid-pattern {
+  background-image: radial-gradient(#23588f 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+}
+
+.tech-grid-subtle {
+  background-image: linear-gradient(to right, rgba(35, 88, 143, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(35, 88, 143, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Print optimizations */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

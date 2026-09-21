@@ -1,0 +1,23 @@
+{
+  "name": "house-of-engineers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "House of Engineers Pvt. Ltd. - Industrial Engineering Corporate Web Portal",
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "dev": "node -e \"const { spawn } = require('child_process'); spawn('npm', ['run', 'dev'], { cwd: 'server', stdio: 'inherit', shell: true }); spawn('npm', ['run', 'dev'], { cwd: 'client', stdio: 'inherit', shell: true });\"",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "install:all": "cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": [
+    "house-of-engineers",
+    "industrial-engineering",
+    "pakistan",
+    "lahore",
+    "solar-structures",
+    "metal-fabrication"
+  ],
+  "author": "House of Engineers Pvt. Ltd."
+}
