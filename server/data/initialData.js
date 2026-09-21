@@ -277,12 +277,130 @@ const initialDistricts = [
 const initialAdminUsers = [
   {
     id: 'admin_1',
-    name: 'Chief Engineer / Admin',
+    name: 'Chief Engineer / Super Admin',
     email: 'admin@houseofengineers.pk',
     // Hash for 'Admin@HOE2026!'
     passwordHash: '$2a$10$Z55fxJNSiNa1ijBRA0zjT.yWqKyMU5WS9DbTaPtVAf4c1WKTtxHb2',
     role: 'superadmin',
     createdAt: new Date().toISOString()
+  },
+  {
+    id: 'editor_1',
+    name: 'Content Editor',
+    email: 'editor@houseofengineers.pk',
+    // Hash for 'Editor@HOE2026!'
+    passwordHash: '$2a$10$KeBKDsH0ljKmyjj4EixgoOP.yaB1iPuLF.Bmdn51uzrnHfRnyUdVu',
+    role: 'editor',
+    createdAt: new Date().toISOString()
+  }
+];
+
+const initialPages = [
+  {
+    id: 'page-home',
+    slug: '/',
+    title: 'Corporate Home',
+    status: 'published',
+    seo: {
+      metaTitle: 'House of Engineers Pvt. Ltd. | Industrial Metal Fabrication Lahore',
+      metaDescription: 'Precision industrial engineering, certified solar mount structures, lathe machining and heavy structural fabrication across Punjab.',
+      keywords: ['industrial engineering', 'solar mounting structures', 'lahore fabrication', 'lathe machining'],
+      ogImage: '/uploads/solar-mounting-c-channel.webp'
+    },
+    blocks: [
+      {
+        id: 'blk-hero-1',
+        type: 'hero',
+        order: 0,
+        content: {
+          badge: 'Lahore Industrial Workshop • Precision Metal Fabrication',
+          headline: 'Precision Industrial Engineering & Custom Metal Fabrication',
+          subheadline: 'From certified solar mount structures to precision lathe machining and bespoke architectural metalwork across Punjab.',
+          primaryButton: { text: 'Explore Capabilities', url: '/services', variant: 'primary' },
+          secondaryButton: { text: 'Request a Quote', url: '/quote', variant: 'accent' },
+          mediaUrl: '',
+          mediaAlt: 'House of Engineers Lahore Workshop'
+        },
+        styling: {
+          paddingTop: 'xl',
+          paddingBottom: 'xl',
+          backgroundColor: '#1e293b',
+          textColor: '#ffffff',
+          alignment: 'left',
+          containerWidth: 'wide'
+        }
+      },
+      {
+        id: 'blk-stats-2',
+        type: 'stats-counter',
+        order: 1,
+        content: {
+          items: [
+            { title: 'Solar Frameworks', stat: '50+', suffix: ' MW', description: 'Fabricated Across Punjab' },
+            { title: 'Press Stamping', stat: '150', suffix: ' Tons', description: 'Mechanical Press Fleet' },
+            { title: 'Wind Resistance', stat: '145', suffix: ' km/h', description: 'Certified Structural Rating' },
+            { title: 'HDG Rust Barrier', stat: '25+', suffix: ' Years', description: 'ASTM A123 Galvanizing' }
+          ]
+        },
+        styling: {
+          paddingTop: 'md',
+          paddingBottom: 'md',
+          backgroundColor: '#ffffff',
+          textColor: '#1e293b',
+          alignment: 'center',
+          containerWidth: 'wide'
+        }
+      },
+      {
+        id: 'blk-cta-3',
+        type: 'cta',
+        order: 2,
+        content: {
+          badge: 'B2B Procurement Desk',
+          headline: 'Have Technical CAD Drawings or Project Blueprints?',
+          subheadline: 'Submit your AutoCAD DWG/PDF drawings, BOM (Bill of Materials), or request an on-site structural engineer consultation anywhere across Punjab.',
+          primaryButton: { text: 'Launch Quote Estimator', url: '/quote', variant: 'accent' },
+          secondaryButton: { text: 'WhatsApp Consultation', url: 'https://wa.me/923001234567', variant: 'outline' }
+        },
+        styling: {
+          paddingTop: 'lg',
+          paddingBottom: 'lg',
+          backgroundColor: '#23588f',
+          textColor: '#ffffff',
+          alignment: 'left',
+          containerWidth: 'wide'
+        }
+      }
+    ],
+    publishedBlocks: [],
+    revisions: [
+      {
+        id: 'rev-init',
+        timestamp: new Date().toISOString(),
+        savedBy: 'admin_1',
+        summary: 'Initial production baseline layout'
+      }
+    ],
+    updatedAt: new Date().toISOString(),
+    publishedAt: new Date().toISOString()
+  }
+];
+
+// Initialize publishedBlocks to match initial blocks
+initialPages[0].publishedBlocks = JSON.parse(JSON.stringify(initialPages[0].blocks));
+
+const initialMedia = [
+  {
+    id: 'asset-demo-1',
+    filename: 'solar-mounting-c-channel.webp',
+    originalName: 'solar-mounting-c-channel.png',
+    url: '/uploads/solar-mounting-c-channel.webp',
+    mimeType: 'image/webp',
+    fileSize: 45200,
+    dimensions: { width: 1200, height: 800 },
+    altText: 'Hot-dip galvanized solar mounting purlin C-channel',
+    uploadedAt: new Date().toISOString(),
+    uploadedBy: 'admin_1'
   }
 ];
 
@@ -292,5 +410,7 @@ module.exports = {
   initialPortfolio,
   initialWorkshopInventory,
   initialDistricts,
-  initialAdminUsers
+  initialAdminUsers,
+  initialPages,
+  initialMedia
 };

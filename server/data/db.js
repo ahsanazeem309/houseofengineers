@@ -7,7 +7,9 @@ const {
   initialPortfolio,
   initialWorkshopInventory,
   initialDistricts,
-  initialAdminUsers
+  initialAdminUsers,
+  initialPages,
+  initialMedia
 } = require('./initialData');
 
 // Determine base data directory: use /tmp if on Vercel/serverless, else local server/data
@@ -31,7 +33,9 @@ const memoryCache = {
   portfolio: null,
   workshop: null,
   inquiries: null,
-  users: null
+  users: null,
+  pages: null,
+  media: null
 };
 
 /**
@@ -235,7 +239,243 @@ const db = {
     users[index].updatedAt = new Date().toISOString();
     writeJson('users.json', users);
     return true;
+  },
+
+  // ==========================================
+  // Dedicated Media Asset Manager Store
+  // ==========================================
+  getMedia: (filters = {}) => {
+    const media = readJson('media.json', initialMedia);
+    let result = [...media];
+
+    if (filters.search) {
+      const q = filters.search.toLowerCase();
+      result = result.filter(m => 
+        (m.filename && m.filename.toLowerCase().includes(q)) ||
+        (m.altText && m.altText.toLowerCase().includes(q)) ||
+        (m.originalName && m.originalName.toLowerCase().includes(q))
+      );
+    }
+
+    if (filters.type && filters.type !== 'all') {
+      result = result.filter(m => m.mimeType && m.mimeType.includes(filters.type));
+    }
+
+    // Sort newest first
+    result.sort((a, b) => new Date(b.uploadedAt || 0) - new Date(a.uploadedAt || 0));
+
+    const total = result.length;
+    const page = parseInt(filters.page, 10) || 1;
+    const limit = parseInt(filters.limit, 10) || 24;
+    const startIndex = (page - 1) * limit;
+    const paginated = result.slice(startIndex, startIndex + limit);
+
+    return {
+      assets: paginated,
+      total,
+      page,
+      totalPages: Math.ceil(total / limit) || 1
+    };
+  },
+
+  getMediaById: (id) => {
+    const { assets } = db.getMedia({ limit: 100000 });
+    return assets.find(m => m.id === id) || null;
+  },
+
+  addMedia: (asset) => {
+    const media = readJson('media.json', initialMedia);
+    const newAsset = {
+      id: asset.id || `asset-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
+      filename: asset.filename,
+      originalName: asset.originalName || asset.filename,
+      url: asset.url,
+      mimeType: asset.mimeType || 'image/webp',
+      fileSize: asset.fileSize || 0,
+      dimensions: asset.dimensions || { width: 0, height: 0 },
+      altText: asset.altText || '',
+      uploadedAt: new Date().toISOString(),
+      uploadedBy: asset.uploadedBy || 'admin'
+    };
+    media.unshift(newAsset);
+    writeJson('media.json', media);
+    return newAsset;
+  },
+
+  updateMedia: (id, updates) => {
+    const media = readJson('media.json', initialMedia);
+    const index = media.findIndex(m => m.id === id);
+    if (index === -1) return null;
+    media[index] = {
+      ...media[index],
+      altText: typeof updates.altText !== 'undefined' ? updates.altText : media[index].altText,
+      updatedAt: new Date().toISOString()
+    };
+    writeJson('media.json', media);
+    return media[index];
+  },
+
+  deleteMedia: (id) => {
+    const media = readJson('media.json', initialMedia);
+    const filtered = media.filter(m => m.id !== id);
+    if (filtered.length === media.length) return false;
+    writeJson('media.json', filtered);
+    return true;
+  },
+
+  // ==========================================
+  // Structured Page & Modular Block CMS Store
+  // ==========================================
+  getPages: () => {
+    const pages = readJson('pages.json', initialPages);
+    // Return summaries without huge block trees for speed
+    return pages.map(p => ({
+      id: p.id,
+      slug: p.slug,
+      title: p.title,
+      status: p.status,
+      seo: p.seo,
+      blockCount: (p.blocks || []).length,
+      updatedAt: p.updatedAt,
+      publishedAt: p.publishedAt
+    }));
+  },
+
+  getPageById: (id) => {
+    const pages = readJson('pages.json', initialPages);
+    return pages.find(p => p.id === id) || null;
+  },
+
+  getPageBySlug: (slug) => {
+    const pages = readJson('pages.json', initialPages);
+    const normalized = slug === '' || slug === '/' ? '/' : slug.replace(/^\/+|\/+$/g, '');
+    return pages.find(p => {
+      const pageNorm = p.slug === '/' ? '/' : p.slug.replace(/^\/+|\/+$/g, '');
+      return pageNorm === normalized;
+    }) || null;
+  },
+
+  createPage: (pageData) => {
+    const pages = readJson('pages.json', initialPages);
+    const slug = (pageData.slug || '').trim().toLowerCase();
+    
+    // Ensure slug starts with /
+    const formattedSlug = slug.startsWith('/') ? slug : `/${slug}`;
+    
+    // Check if slug already exists
+    if (pages.some(p => p.slug === formattedSlug)) {
+      throw new Error(`A page with slug "${formattedSlug}" already exists.`);
+    }
+
+    const newPage = {
+      id: `page-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`,
+      slug: formattedSlug,
+      title: pageData.title || 'Untitled Page',
+      status: pageData.status || 'draft',
+      seo: {
+        metaTitle: pageData.seo?.metaTitle || pageData.title || 'House of Engineers',
+        metaDescription: pageData.seo?.metaDescription || '',
+        keywords: pageData.seo?.keywords || [],
+        ogImage: pageData.seo?.ogImage || ''
+      },
+      // Structured JSON blocks (no raw HTML strings as root container)
+      blocks: Array.isArray(pageData.blocks) ? pageData.blocks : [],
+      publishedBlocks: pageData.status === 'published' && Array.isArray(pageData.blocks) ? pageData.blocks : [],
+      revisions: [
+        {
+          id: `rev-${Date.now()}`,
+          timestamp: new Date().toISOString(),
+          savedBy: pageData.savedBy || 'admin',
+          summary: 'Initial page creation',
+          blocks: Array.isArray(pageData.blocks) ? pageData.blocks : []
+        }
+      ],
+      updatedAt: new Date().toISOString(),
+      publishedAt: pageData.status === 'published' ? new Date().toISOString() : null
+    };
+
+    pages.push(newPage);
+    writeJson('pages.json', pages);
+    return newPage;
+  },
+
+  updatePage: (id, pageData, user = 'admin') => {
+    const pages = readJson('pages.json', initialPages);
+    const index = pages.findIndex(p => p.id === id);
+    if (index === -1) return null;
+
+    const existing = pages[index];
+    const isPublishing = pageData.status === 'published';
+
+    // Structured blocks assignment
+    const updatedBlocks = Array.isArray(pageData.blocks) ? pageData.blocks : existing.blocks;
+
+    // Create a new version snapshot
+    const revision = {
+      id: `rev-${Date.now()}`,
+      timestamp: new Date().toISOString(),
+      savedBy: user,
+      summary: pageData.summary || (isPublishing ? 'Published changes' : 'Saved draft update'),
+      blocks: JSON.parse(JSON.stringify(updatedBlocks))
+    };
+
+    const revisions = [revision, ...(existing.revisions || [])].slice(0, 15); // Keep rolling 15 snapshots
+
+    pages[index] = {
+      ...existing,
+      title: pageData.title || existing.title,
+      slug: pageData.slug || existing.slug,
+      status: pageData.status || existing.status,
+      seo: {
+        metaTitle: pageData.seo?.metaTitle ?? existing.seo?.metaTitle,
+        metaDescription: pageData.seo?.metaDescription ?? existing.seo?.metaDescription,
+        keywords: pageData.seo?.keywords ?? existing.seo?.keywords,
+        ogImage: pageData.seo?.ogImage ?? existing.seo?.ogImage
+      },
+      blocks: updatedBlocks,
+      publishedBlocks: isPublishing ? JSON.parse(JSON.stringify(updatedBlocks)) : (existing.publishedBlocks || []),
+      revisions,
+      updatedAt: new Date().toISOString(),
+      publishedAt: isPublishing ? new Date().toISOString() : existing.publishedAt
+    };
+
+    writeJson('pages.json', pages);
+    return pages[index];
+  },
+
+  revertPageRevision: (id, revisionId) => {
+    const pages = readJson('pages.json', initialPages);
+    const index = pages.findIndex(p => p.id === id);
+    if (index === -1) return null;
+
+    const page = pages[index];
+    const targetRev = (page.revisions || []).find(r => r.id === revisionId);
+    if (!targetRev) return null;
+
+    page.blocks = JSON.parse(JSON.stringify(targetRev.blocks));
+    page.updatedAt = new Date().toISOString();
+    
+    // Add revision record documenting the revert
+    page.revisions.unshift({
+      id: `rev-${Date.now()}`,
+      timestamp: new Date().toISOString(),
+      savedBy: 'admin',
+      summary: `Reverted to revision snapshot from ${new Date(targetRev.timestamp).toLocaleString()}`,
+      blocks: JSON.parse(JSON.stringify(targetRev.blocks))
+    });
+
+    writeJson('pages.json', pages);
+    return page;
+  },
+
+  deletePage: (id) => {
+    const pages = readJson('pages.json', initialPages);
+    const filtered = pages.filter(p => p.id !== id);
+    if (filtered.length === pages.length) return false;
+    writeJson('pages.json', filtered);
+    return true;
   }
 };
 
 module.exports = db;
+

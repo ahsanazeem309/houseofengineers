@@ -1,3 +1,5 @@
+const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -61,17 +63,28 @@ app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/content', contentRoutes);
 
-const path = require('path');
-const fs = require('fs');
+// Secure Static Uploads Serving
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  try { fs.mkdirSync(uploadsDir, { recursive: true }); } catch (_) {}
+}
+
+app.use('/uploads', (req, res, next) => {
+  // Enforce non-executable, strict MIME sniffing defense headers
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Content-Security-Policy', "default-src 'none'; style-src 'unsafe-inline'; sandbox");
+  res.setHeader('Cache-Control', 'public, max-age=86400');
+  next();
+}, express.static(uploadsDir));
 
 // Static Asset Serving (Production & Local Previews)
 const clientDistPath = path.join(__dirname, '../client/dist');
 if (fs.existsSync(clientDistPath)) {
   app.use(express.static(clientDistPath));
   
-  // Client SPA fallback for non-API routes
+  // Client SPA fallback for non-API and non-uploads routes
   app.get('*', (req, res, next) => {
-    if (req.originalUrl.startsWith('/api')) {
+    if (req.originalUrl.startsWith('/api') || req.originalUrl.startsWith('/uploads')) {
       return next();
     }
     res.sendFile(path.join(clientDistPath, 'index.html'));

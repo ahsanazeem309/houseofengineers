@@ -27,7 +27,7 @@ const requireAdminAuth = (req, res, next) => {
       id: admin.id,
       email: admin.email,
       name: admin.name,
-      role: admin.role
+      role: admin.role || 'editor'
     };
     next();
   } catch (err) {
@@ -38,7 +38,33 @@ const requireAdminAuth = (req, res, next) => {
   }
 };
 
+/**
+ * Role-Based Access Control (RBAC) Guard
+ * @param {string[]} allowedRoles e.g. ['superadmin'] or ['superadmin', 'editor']
+ */
+const requireRole = (allowedRoles = ['superadmin']) => {
+  return (req, res, next) => {
+    if (!req.user) {
+      return res.status(401).json({
+        success: false,
+        message: 'Authentication required before role verification.'
+      });
+    }
+
+    const userRole = req.user.role || 'editor';
+    if (!allowedRoles.includes(userRole)) {
+      return res.status(403).json({
+        success: false,
+        message: `Forbidden: Role [${userRole}] does not have required permissions (${allowedRoles.join(' or ')}).`
+      });
+    }
+    next();
+  };
+};
+
 module.exports = {
   requireAdminAuth,
+  requireRole,
   JWT_SECRET
 };
+
