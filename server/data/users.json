@@ -1,10 +1,18 @@
 [
   {
     "id": "admin_1",
-    "name": "Chief Engineer / Admin",
+    "name": "Chief Engineer / Super Admin",
     "email": "admin@houseofengineers.pk",
     "passwordHash": "$2a$10$Z55fxJNSiNa1ijBRA0zjT.yWqKyMU5WS9DbTaPtVAf4c1WKTtxHb2",
     "role": "superadmin",
     "createdAt": "2026-09-21T11:00:41.554Z"
+  },
+  {
+    "id": "editor_1",
+    "name": "Content Editor",
+    "email": "editor@houseofengineers.pk",
+    "passwordHash": "$2a$10$KeBKDsH0ljKmyjj4EixgoOP.yaB1iPuLF.Bmdn51uzrnHfRnyUdVu",
+    "role": "editor",
+    "createdAt": "2026-09-22T02:00:00.000Z"
   }
 ]

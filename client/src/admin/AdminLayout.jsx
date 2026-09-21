@@ -15,7 +15,8 @@ import {
   X,
   Bell,
   Search,
-  CheckCircle2
+  CheckCircle2,
+  Image as ImageIcon
 } from 'lucide-react';
 
 export default function AdminLayout() {
@@ -71,6 +72,7 @@ export default function AdminLayout() {
       icon: Inbox, 
       badge: newInquiriesCount > 0 ? newInquiriesCount : null 
     },
+    { name: 'Media Library', path: '/admin/media', icon: ImageIcon },
     { name: 'Site Settings & Branding', path: '/admin/settings', icon: Settings },
     { name: 'Services & Capabilities', path: '/admin/services', icon: Wrench },
     { name: 'Portfolio & Projects', path: '/admin/portfolio', icon: Layers },

@@ -27,6 +27,7 @@ import AdminLayout from './admin/AdminLayout';
 import AdminLogin from './admin/pages/AdminLogin';
 import AdminDashboard from './admin/pages/AdminDashboard';
 import InquiriesManager from './admin/pages/InquiriesManager';
+import MediaManager from './admin/media/MediaManager';
 import SiteSettingsEditor from './admin/pages/SiteSettingsEditor';
 import ServicesManager from './admin/pages/ServicesManager';
 import PortfolioManager from './admin/pages/PortfolioManager';
@@ -91,6 +92,7 @@ export default function App() {
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />
               <Route path="inquiries" element={<InquiriesManager />} />
+              <Route path="media" element={<MediaManager />} />
               <Route path="settings" element={<SiteSettingsEditor />} />
               <Route path="services" element={<ServicesManager />} />
               <Route path="portfolio" element={<PortfolioManager />} />

@@ -8,6 +8,7 @@ const contactRoutes = require('./routes/contactRoutes');
 const authRoutes = require('./routes/authRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const contentRoutes = require('./routes/contentRoutes');
+const mediaRoutes = require('./routes/mediaRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -61,6 +62,7 @@ app.use((req, res, next) => {
 app.use('/api', contactRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/admin/media', mediaRoutes);
 app.use('/api/content', contentRoutes);
 
 // Secure Static Uploads Serving
