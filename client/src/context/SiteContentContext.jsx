@@ -111,6 +111,8 @@ export const SiteContentProvider = ({ children }) => {
         services,
         portfolio,
         workshop,
+        workshopInventory: workshop?.inventory || [],
+        districts: workshop?.districts || [],
         isLoading,
         refreshContent: fetchContent
       }}

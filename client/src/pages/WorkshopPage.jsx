@@ -20,7 +20,8 @@ import Breadcrumb from '../components/Breadcrumb';
 import PageTransition from '../components/PageTransition';
 
 export default function WorkshopPage() {
-  const { workshopInventory, districts, settings } = useSiteContent();
+  const { workshopInventory, districts, workshop, settings } = useSiteContent();
+  const safeDistricts = (districts && districts.length > 0) ? districts : (workshop?.districts || []);
 
   const machineryFleet = [
     {
@@ -197,7 +198,7 @@ export default function WorkshopPage() {
               </p>
 
               <div className="flex flex-wrap gap-2 pt-2">
-                {districts.map((district, idx) => (
+                {safeDistricts.map((district, idx) => (
                   <span key={idx} className="bg-slate-800 border border-slate-700 text-slate-300 text-xs px-2.5 py-1 rounded flex items-center gap-1.5">
                     <MapPin className="w-3 h-3 text-brand-orange" />
                     <span>{district}</span>
